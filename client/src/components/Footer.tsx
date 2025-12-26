@@ -13,7 +13,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link href={p("/")} className="flex items-center space-x-2 group cursor-pointer mb-6">
               <Shield className="w-6 h-6 text-primary" strokeWidth={2} />
-              <span className="text-lg font-bold tracking-tight uppercase">Autonomia Digitale</span>
+              <span className="text-lg font-bold tracking-tight uppercase">Pro Intelligentia Artificiali</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Associazione no-profit per l'indipendenza tecnologica e la sovranità digitale.
@@ -50,7 +50,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Associazione Autonomia Digitale. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Associazione Pro Intelligentia Artificiali. All rights reserved.</p>
           <p className="mt-2 md:mt-0 font-mono">Designed in Switzerland.</p>
         </div>
       </div>

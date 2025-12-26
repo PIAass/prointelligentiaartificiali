@@ -17,7 +17,7 @@ export default function Home() {
             Costruiamo un futuro digitale <span className="text-primary">libero</span> e <span className="text-primary">consapevole</span>.
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl leading-relaxed">
-            Autonomia Digitale è l'associazione svizzera che promuove la sovranità tecnologica, la privacy e l'uso etico dell'intelligenza artificiale.
+            Pro Intelligentia Artificiali è l'associazione svizzera no-profit che promuove l'autonomia digitale, la privacy e l'uso etico dell'intelligenza artificiale nel lavoro.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
