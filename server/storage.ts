@@ -1,37 +1,29 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { ContactSubmission, InsertContactSubmission } from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  // Contact logs
+  logContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
+  private contactSubmissions: Map<number, ContactSubmission>;
+  private contactIdCounter: number;
 
   constructor() {
-    this.users = new Map();
+    this.contactSubmissions = new Map();
+    this.contactIdCounter = 1;
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async logContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
+    const id = this.contactIdCounter++;
+    const newSubmission: ContactSubmission = {
+      ...submission,
+      id,
+      createdAt: new Date(),
+    };
+    this.contactSubmissions.set(id, newSubmission);
+    console.log("New Contact Submission:", newSubmission); // "Log to console" as requested fallback
+    return newSubmission;
   }
 }
 
