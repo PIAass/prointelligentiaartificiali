@@ -35,7 +35,7 @@ export function Navigation() {
             <div className="w-10 h-10 bg-primary text-primary-foreground flex items-center justify-center transition-transform group-hover:rotate-12">
               <Shield className="w-6 h-6" strokeWidth={1.5} />
             </div>
-            <span className="text-xl font-bold tracking-tight uppercase">Pro IA</span>
+            <span className="text-xl font-bold tracking-tight uppercase">PIA ass</span>
           </Link>
 
           {/* Desktop Nav */}
