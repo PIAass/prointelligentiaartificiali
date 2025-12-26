@@ -1,0 +1,109 @@
+Sei Replit Agent. Crea un sito vetrina istituzionale (Svizzera/Ticino) per l’associazione no-profit di pubblica utilità “Pro Intelligentia Artificiali”.
+Sottotitolo: “Autonomia Digitale e Lavoro”.
+Indirizzo: Via Maestri Comacini 7, 6830 Chiasso, c/o ExpertFid & Audit SA.
+
+STACK (scelta obbligatoria)
+- Next.js 14+ (App Router) + TypeScript
+- TailwindCSS
+- next-intl (o equivalente) per multilingua
+- MDX/Markdown file-based CMS per contenuti (articoli, eventi, corsi, progetti) con frontmatter YAML
+- Nessun database richiesto in MVP
+- Deploy-ready su Replit (porta, build, start script)
+
+LINGUE
+- Primaria: Italiano
+- Secondarie: DE, FR, EN
+Requisito: UI con selettore lingua + routing /it /de /fr /en. Traduzioni in JSON per UI. I contenuti (articoli/eventi) possono essere in IT nella prima versione con placeholder per le altre lingue.
+
+DESIGN / TONE
+- Minimal “svizzero”, accessibile, mobile-first, performance alta.
+- Comunicazione sobria e trasparente (stile ente formativo/consulenza altamente specializzata + pubblica utilità). Niente marketing aggressivo.
+- Nessun uso di loghi/nomi di terzi come endorsement. Nessun riferimento a “partner” se non reali.
+
+OBIETTIVI (pubblica utilità + sostenibilità)
+1) Formazione gratuita aperta a tutti su AI tramite eventi e webinar.
+2) Promuovere AI locale + privacy/discrezione: buone pratiche conformi nLPD/LPD (minimizzazione dati, evitare condivisione non necessaria). Includi un messaggio: “AI locale quando possibile per maggiore controllo e riservatezza”. Nota: non consulenza legale.
+3) Occupabilità e transizione lavorativa: reskilling/upskilling, AI come supporto (non sostituzione). Messaggio chiave che intercetti la paura di essere sostituiti e offri percorsi concreti.
+4) Brand identity con AI: uso etico e pratico per crescere organicamente (social), aumentare valore/servizi.
+5) Chatbot/assistenti AI per attività professionali (privacy/sicurezza), supporto vendite e customer care.
+6) Vendita servizi coerenti (consulenze/formazione per PF, freelance, PMI, enti) con ricavi reinvestiti nello scopo (nessuna distribuzione utili). Approccio solidarietà: agevolazioni basate sul bisogno; prezzo pieno per aziende. Nessun requisito di membership per accedere ai servizi.
+
+STRUTTURA UX “ATED-LIKE” (solo pattern, niente marchi)
+- Calendario eventi centralizzato con filtri: Webinar, Workshop, Corso, Evento, Evento partner (quest’ultimo solo come tipologia; non citare partner reali).
+- Pagine distinte: “Formazione” vs “Eventi”.
+- Pagina “Progetti” con risultati/indicatori e link a report (placeholder).
+- Evidenzia programmi di utilità pubblica come attività principale.
+
+SITEMAP / PAGINE
+1) Home
+   - Hero con mission + 2 CTA: “Risorse gratuite” e “Richiedi consulenza”
+   - 3 pilastri: AI Locale & Privacy / Lavoro & Occupabilità / AI Responsabile per Professionisti
+   - Blocchi: Prossimi eventi, Prossimi corsi, Progetti in corso
+   - Servizi (a pagamento) + Trasparenza + Newsletter
+2) Missione e Impatto
+   - Scopo di pubblica utilità, beneficiari aperti al pubblico, reinvestimento nello scopo, come misuriamo impatto
+3) Aree tematiche (4 pagine)
+   a) AI Locale & Privacy (nLPD/LPD) + checklist + FAQ + disclaimer “non consulenza legale”
+   b) Chatbot & Assistenti AI (principi, casi d’uso, privacy)
+   c) Brand Identity con AI (workflow etici, tone of voice, template)
+   d) Lavoro & Occupabilità (CV/portfolio, colloqui, reskilling, strumenti per profili fragili)
+4) Risorse gratuite (Blog/CMS)
+   - categorie: Privacy/AI locale, Chatbot, Brand, Lavoro
+   - articoli con embed YouTube in modalità privacy-enhanced (youtube-nocookie) se possibile
+5) Eventi
+   - Calendario filtrabile + pagine dettaglio evento con CTA “Iscriviti” (link esterno: Zoom/Teams/Eventbrite/YouTube Live)
+6) Formazione
+   - Elenco corsi/percorsi con obiettivi, livello, prerequisiti, durata, contenuti, docente/i, opzione agevolazioni (testo)
+7) Progetti
+   - Sportello AI Locale & Privacy / AI e Occupabilità / AI per Brand Identity / Chatbot responsabili
+   - per ciascuno: obiettivo, beneficiari, attività, risultati/indicatori, come sostenerlo (donazione/sponsor etico), link a report (placeholder)
+8) Servizi (a pagamento)
+   - Pacchetti consulenza: 30/60/90 min + “Formazione per aziende/enti su preventivo”
+   - cosa include/non include; processo (pre-call form minimo); tempi; prezzi trasparenti
+   - CTA “Prenota” (integrazione semplice: link/iframe Calendly) + pagamento opzionale (Stripe payment link placeholder)
+9) Chi siamo
+   - comitato (placeholder nomi) + ruoli + contatti + indirizzo
+   - governance: conflitto d’interessi (astensione su decisioni che riguardano compensi)
+10) Trasparenza
+   - link placeholder: statuto, report attività, bilanci, policy sponsorizzazioni
+   - statement “nessuna distribuzione utili”
+11) Donazioni / Sostieni
+   - IBAN + TWINT (placeholder), perché donare, come usiamo i fondi
+12) Contatti
+   - form contatto + email + media kit (placeholder)
+13) Legali
+   - Privacy policy (nLPD/LPD + GDPR-friendly), cookie policy (se tracking), termini consulenze, imprint
+
+FUNZIONI (implementa davvero)
+- “CMS” file-based:
+  - /content/{lang}/blog/*.mdx
+  - /content/{lang}/events/*.mdx (con frontmatter: date, type, price, link, location, tags)
+  - /content/{lang}/courses/*.mdx
+  - /content/{lang}/projects/*.mdx
+- Filtri eventi lato client basati sul frontmatter.
+- Form contatto funzionante:
+  - endpoint /api/contact che invia email via SMTP (placeholder) o Resend (con ENV var).
+  - fallback: salva anche su file log (solo in dev) senza dati sensibili.
+- Newsletter: integra un embed form o link a Brevo/Mailchimp (placeholder).
+- SEO base: metadata, OpenGraph, sitemap.xml e robots.txt.
+- Accessibilità: contrasto, focus state, aria-label, skip-to-content.
+
+COPY (messaggi chiave da includere)
+- “Autonomia digitale: capire, scegliere, proteggere.”
+- “AI locale quando possibile: più controllo, più privacy.”
+- “Competenze per vivere e lavorare con l’AI, senza esserne sostituiti.”
+- “Contenuti gratuiti per tutti. Servizi a pagamento per sostenere la missione.”
+
+SEED CONTENT (da generare)
+- 4 articoli iniziali (IT) + 10 FAQ
+- 6 eventi demo (con tipi diversi) + 3 corsi demo + 4 progetti demo
+- Pagine area tematica complete in IT con placeholder per DE/FR/EN
+
+REQUISITO EXTRA: UID / RC (placeholder)
+- Aggiungi un campo “UID (CHE-…): [placeholder]” e “N. Registro di commercio (RC/RE): [placeholder]”.
+- Mostrali nel footer e nella pagina Contatti e nella pagina Imprint/Legali.
+- Implementa questi valori come costanti/config (es. siteConfig.ts) per poterli aggiornare facilmente quando disponibili.
+
+OUTPUT
+- Repo completo pronto al deploy su Replit: README con istruzioni, variabili ENV, comandi.
+- Nessun claim esagerato, nessun linguaggio di vendita aggressivo, nessun uso di loghi/nomi di terzi come endorsement.
