@@ -118,28 +118,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Guide Download Section */}
-      <Section className="bg-primary/10 relative">
-        <div className="absolute inset-0 opacity-10">
-          <NeuralBackground />
-        </div>
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">{t.home.guide.title}</h2>
-          <p className="text-muted-foreground mb-8 text-lg">
-            {t.home.guide.desc}
-          </p>
+      {/* Guide Download Banner */}
+      <div className="bg-primary/10 py-3 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
+          <span className="text-sm font-medium">{t.home.guide.title}</span>
           <a 
             href="/PIA_guida_AI_Locale_1766854839035.pdf" 
             download
             data-testid="button-download-guide"
           >
-            <Button size="lg" className="text-lg px-8 py-6">
-              <Download className="mr-2 w-5 h-5" />
+            <Button size="sm" variant="outline">
+              <Download className="mr-2 w-4 h-4" />
               {t.home.guide.btn}
             </Button>
           </a>
         </div>
-      </Section>
+      </div>
 
       {/* Pillars Section */}
       <Section className="bg-secondary/30 relative">
