@@ -95,7 +95,7 @@ export async function saveNewsletterToNotion(data: {
         checkbox: data.consent
       },
       'Fonte': {
-        rich_text: [{ text: { content: data.source } }]
+        select: { name: data.source }
       }
     }
   });
