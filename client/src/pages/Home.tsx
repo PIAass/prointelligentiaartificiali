@@ -119,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* Guide Download Banner */}
-      <div className="bg-primary/10 py-3 px-4">
+      <div className="bg-primary/10 py-3 px-4 mt-8">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
           <span className="text-sm font-medium">{t.home.guide.title}</span>
           <a 
