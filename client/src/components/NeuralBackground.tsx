@@ -70,7 +70,7 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
 
       // Draw connections
       const connectionDistance = 120;
-      const mouseDistance = 150;
+      const mouseDistance = 180;
 
       points.forEach((point, i) => {
         const distToMouse = Math.sqrt(
@@ -81,11 +81,19 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
         
         // Draw point
         ctx.beginPath();
-        ctx.arc(point.x, point.y, isNearMouse ? 3 : 2, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, isNearMouse ? 4 : 2, 0, Math.PI * 2);
         ctx.fillStyle = isNearMouse 
-          ? 'rgba(59, 130, 246, 0.8)' 
-          : 'rgba(59, 130, 246, 0.3)';
+          ? 'rgba(59, 130, 246, 1)' 
+          : 'rgba(59, 130, 246, 0.4)';
         ctx.fill();
+        
+        // Add glow effect for points near mouse
+        if (isNearMouse) {
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 8, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
+          ctx.fill();
+        }
 
         // Draw connections to other points
         for (let j = i + 1; j < points.length; j++) {
@@ -101,14 +109,14 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
             const bothNearMouse = isNearMouse && otherDistToMouse < mouseDistance;
             
             const opacity = bothNearMouse 
-              ? 0.6 * (1 - dist / connectionDistance)
-              : 0.15 * (1 - dist / connectionDistance);
+              ? 0.9 * (1 - dist / connectionDistance)
+              : 0.2 * (1 - dist / connectionDistance);
 
             ctx.beginPath();
             ctx.moveTo(point.x, point.y);
             ctx.lineTo(other.x, other.y);
             ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})`;
-            ctx.lineWidth = bothNearMouse ? 1.5 : 0.5;
+            ctx.lineWidth = bothNearMouse ? 2.5 : 0.5;
             ctx.stroke();
           }
         }

@@ -213,11 +213,9 @@ export const translations = {
           ]
         }
       ],
-      uncensoredTitle: "Modelli senza censura",
-      uncensoredText: "Alcuni modelli locali non hanno censura o guardrail: puoi chiedere qualsiasi cosa.",
-      disclaimerText: "L'utente resta responsabile dell'uso conforme alle leggi e al rispetto dei diritti altrui.",
-      ctaContact: "Contattaci",
-      ctaCourses: "Scopri la formazione"
+      ctaTitle: "Pronto a fare il salto?",
+      ctaDesc: "Ogni giorno che passa senza AI è un'opportunità persa. Parliamone insieme.",
+      ctaContact: "Richiedi una consulenza gratuita"
     },
     contact: {
       title: "Contattaci",
@@ -476,11 +474,9 @@ export const translations = {
           ]
         }
       ],
-      uncensoredTitle: "Uncensored models",
-      uncensoredText: "Some local models have no censorship or guardrails: you can ask anything.",
-      disclaimerText: "The user remains responsible for lawful use and respect for others' rights.",
-      ctaContact: "Contact Us",
-      ctaCourses: "Discover Training"
+      ctaTitle: "Ready to make the leap?",
+      ctaDesc: "Every day without AI is a missed opportunity. Let's talk about it.",
+      ctaContact: "Request a free consultation"
     },
     contact: {
       title: "Contact Us",
@@ -739,11 +735,9 @@ export const translations = {
           ]
         }
       ],
-      uncensoredTitle: "Unzensierte Modelle",
-      uncensoredText: "Einige lokale Modelle haben keine Zensur oder Leitplanken: Sie können alles fragen.",
-      disclaimerText: "Der Benutzer bleibt verantwortlich für die rechtmässige Nutzung und die Achtung der Rechte anderer.",
-      ctaContact: "Kontaktieren Sie uns",
-      ctaCourses: "Ausbildung entdecken"
+      ctaTitle: "Bereit für den Sprung?",
+      ctaDesc: "Jeder Tag ohne KI ist eine verpasste Chance. Sprechen wir darüber.",
+      ctaContact: "Kostenlose Beratung anfordern"
     },
     contact: {
       title: "Kontaktieren Sie uns",
@@ -1002,11 +996,9 @@ export const translations = {
           ]
         }
       ],
-      uncensoredTitle: "Modèles sans censure",
-      uncensoredText: "Certains modèles locaux n'ont pas de censure ni de garde-fous: vous pouvez demander n'importe quoi.",
-      disclaimerText: "L'utilisateur reste responsable de l'utilisation conforme aux lois et du respect des droits d'autrui.",
-      ctaContact: "Contactez-nous",
-      ctaCourses: "Découvrir la formation"
+      ctaTitle: "Prêt à faire le saut?",
+      ctaDesc: "Chaque jour sans IA est une opportunité manquée. Parlons-en ensemble.",
+      ctaContact: "Demander une consultation gratuite"
     },
     contact: {
       title: "Contactez-nous",

@@ -5,7 +5,8 @@ import { PageHero } from "@/components/PageHero";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Check, Server, User, MessageSquare, GraduationCap } from "lucide-react";
+import { Check, Server, User, MessageSquare, GraduationCap, ArrowRight } from "lucide-react";
+import { NeuralBackground } from "@/components/NeuralBackground";
 
 const categoryIcons = [Server, User, MessageSquare, GraduationCap];
 
@@ -44,16 +45,21 @@ export default function Services() {
             );
           })}
         </div>
-        
-        <div className="flex flex-wrap justify-center gap-4 mt-12">
+      </Section>
+
+      <Section dark className="text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <NeuralBackground />
+        </div>
+        <div className="relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">{t.services.ctaTitle}</h2>
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8">
+            {t.services.ctaDesc}
+          </p>
           <Link href={p("/contact")}>
-            <Button size="lg" data-testid="button-services-contact">
+            <Button size="lg" className="text-lg px-8 py-6" data-testid="button-services-contact">
               {t.services.ctaContact}
-            </Button>
-          </Link>
-          <Link href={p("/courses")}>
-            <Button variant="outline" size="lg" data-testid="button-services-courses">
-              {t.services.ctaCourses}
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
         </div>
