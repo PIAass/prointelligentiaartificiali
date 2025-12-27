@@ -9,15 +9,15 @@ import { Mail } from 'lucide-react';
 export function NewsletterForm({ variant = 'default', source = 'website' }: { variant?: 'default' | 'inline', source?: string }) {
   const { language } = useLanguage();
   const t = useTranslation(language);
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !name || !consent) return;
+    if (!email || !consent) return;
 
+    const name = email.split('@')[0];
     setStatus('loading');
     
     try {
@@ -29,7 +29,6 @@ export function NewsletterForm({ variant = 'default', source = 'website' }: { va
 
       if (res.ok) {
         setStatus('success');
-        setName('');
         setEmail('');
         setConsent(false);
       } else {
@@ -52,26 +51,14 @@ export function NewsletterForm({ variant = 'default', source = 'website' }: { va
   if (variant === 'inline') {
     return (
       <form onSubmit={handleSubmit} className="space-y-3 max-w-md">
-        <div className="flex gap-2">
-          <Input
-            type="text"
-            placeholder={t.newsletter.name}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="flex-1"
-            required
-            data-testid="input-newsletter-name"
-          />
-          <Input
-            type="email"
-            placeholder={t.newsletter.email}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1"
-            required
-            data-testid="input-newsletter-email"
-          />
-        </div>
+        <Input
+          type="email"
+          placeholder={t.newsletter.email}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          data-testid="input-newsletter-email"
+        />
         <div className="flex items-start gap-2">
           <Checkbox 
             id="consent-inline" 
@@ -94,26 +81,14 @@ export function NewsletterForm({ variant = 'default', source = 'website' }: { va
     <div className="bg-card border border-border p-8 rounded-md">
       <h3 className="text-xl font-bold mb-4">{t.newsletter.title}</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Input
-            type="text"
-            placeholder={t.newsletter.name}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="flex-1"
-            required
-            data-testid="input-newsletter-name"
-          />
-          <Input
-            type="email"
-            placeholder={t.newsletter.email}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1"
-            required
-            data-testid="input-newsletter-email"
-          />
-        </div>
+        <Input
+          type="email"
+          placeholder={t.newsletter.email}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          data-testid="input-newsletter-email"
+        />
         <div className="flex items-start gap-2">
           <Checkbox 
             id="consent-default" 
