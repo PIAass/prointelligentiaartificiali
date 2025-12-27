@@ -10,7 +10,7 @@ interface SectionProps {
 export function Section({ children, className, dark = false }: SectionProps) {
   return (
     <section className={cn(
-      "py-20 md:py-32 px-4 sm:px-6 lg:px-8",
+      "py-12 md:py-16 px-4 sm:px-6 lg:px-8",
       dark ? "bg-foreground text-background" : "bg-background text-foreground",
       className
     )}>

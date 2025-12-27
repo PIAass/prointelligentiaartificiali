@@ -17,8 +17,8 @@ export default function Events() {
       <PageHero title={t.events.title} subtitle={t.events.subtitle} />
 
       <Section>
-        <h2 className="text-3xl font-bold mb-2">{t.events.relatedTitle}</h2>
-        <p className="text-muted-foreground mb-8">{t.events.relatedSubtitle}</p>
+        <h2 className="text-2xl font-bold mb-1">{t.events.relatedTitle}</h2>
+        <p className="text-muted-foreground mb-6">{t.events.relatedSubtitle}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {t.events.externalEvents.map((event, idx) => (
             <Card key={idx} className="group hover:border-primary/50 transition-colors">

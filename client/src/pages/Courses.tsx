@@ -16,7 +16,7 @@ export default function Courses() {
       <PageHero title={t.courses.title} subtitle={t.courses.subtitle} />
 
       <Section>
-        <h2 className="text-3xl font-bold mb-8">{t.courses.pastTitle}</h2>
+        <h2 className="text-2xl font-bold mb-6">{t.courses.pastTitle}</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {t.courses.pastCourses.map((course, idx) => (
             <Card key={idx} className="group hover:border-primary/50 transition-colors">
