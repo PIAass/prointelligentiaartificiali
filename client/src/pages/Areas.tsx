@@ -1,10 +1,12 @@
 import { Section } from "@/components/Section";
+import { PageHeader } from "@/components/PageHeader";
 import { Shield, MessageSquare, Briefcase, Eye } from "lucide-react";
 
 export default function Areas() {
   return (
     <div className="min-h-screen">
-      <Section className="pt-32 pb-16 border-b border-border">
+      <PageHeader />
+      <Section className="pt-8 lg:pt-32 pb-16 border-b border-border">
         <h1 className="max-w-4xl">Aree di Intervento.</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mt-6">
           Il nostro lavoro si concentra su quattro pilastri fondamentali per garantire una cittadinanza digitale piena e consapevole.

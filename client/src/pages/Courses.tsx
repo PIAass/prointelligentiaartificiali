@@ -3,6 +3,7 @@ import { useTranslation } from "@/lib/translations";
 import { Section } from "@/components/Section";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { NeuralBackground } from "@/components/NeuralBackground";
+import { PageHeader } from "@/components/PageHeader";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Clock, User, Calendar } from "lucide-react";
@@ -60,9 +61,10 @@ export default function Courses() {
   const t = useTranslation(language);
 
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen">
+      <PageHeader />
       {/* Hero */}
-      <Section className="relative overflow-hidden border-b border-border">
+      <Section className="relative overflow-hidden border-b border-border pt-8 lg:pt-24">
         <div className="absolute inset-0 opacity-10">
           <NeuralBackground />
         </div>

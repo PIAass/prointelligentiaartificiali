@@ -1,4 +1,5 @@
 import { Section } from "@/components/Section";
+import { PageHeader } from "@/components/PageHeader";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertContactSchema, type InsertContactSubmission } from "@shared/schema";
@@ -40,7 +41,8 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
-      <Section className="pt-32 pb-16 border-b border-border">
+      <PageHeader />
+      <Section className="pt-8 lg:pt-32 pb-16 border-b border-border">
         <h1 className="max-w-4xl">Parliamo.</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mt-6">
           Hai domande sui nostri corsi, vuoi collaborare o semplicemente saperne di più? Compila il modulo qui sotto.

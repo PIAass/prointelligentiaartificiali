@@ -37,7 +37,8 @@ export function Navigation() {
               alt="PIA Logo" 
               className="w-10 h-10 object-contain transition-transform group-hover:scale-105"
             />
-            <span className="text-xl font-bold tracking-tight uppercase">PIA</span>
+            <span className="text-xl font-bold tracking-tight uppercase lg:hidden">PIA</span>
+            <span className="text-xl font-bold tracking-tight uppercase hidden lg:inline">Pro Intelligentia Artificiali</span>
           </Link>
 
           {/* Desktop Nav */}

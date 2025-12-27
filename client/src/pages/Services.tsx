@@ -1,6 +1,7 @@
 import { Section } from "@/components/Section";
 import { Link } from "wouter";
 import { useLanguage } from "@/hooks/use-language";
+import { PageHeader } from "@/components/PageHeader";
 import { Check } from "lucide-react";
 
 export default function Services() {
@@ -33,7 +34,8 @@ export default function Services() {
 
   return (
     <div className="min-h-screen">
-      <Section className="pt-32 pb-16 border-b border-border">
+      <PageHeader />
+      <Section className="pt-8 lg:pt-32 pb-16 border-b border-border">
         <h1 className="max-w-4xl">Servizi per l'indipendenza.</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mt-6">
           Offriamo consulenza strategica e tecnica per aiutare individui e aziende a liberarsi dalla dipendenza tecnologica.

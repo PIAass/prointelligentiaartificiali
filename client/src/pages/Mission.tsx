@@ -1,9 +1,11 @@
 import { Section } from "@/components/Section";
+import { PageHeader } from "@/components/PageHeader";
 
 export default function Mission() {
   return (
     <div className="min-h-screen">
-      <Section className="pt-32 pb-16 border-b border-border">
+      <PageHeader />
+      <Section className="pt-8 lg:pt-32 pb-16 border-b border-border">
         <h1 className="max-w-4xl">La nostra missione è semplice: restituire il <span className="text-primary">potere digitale</span> alle persone.</h1>
       </Section>
 
