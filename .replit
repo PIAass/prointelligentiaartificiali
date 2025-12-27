@@ -40,3 +40,8 @@ waitForPort = 5000
 
 [agent]
 integrations = ["notion:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+NOTION_CONTACTS_DATABASE_ID = "a894cb1ea4fd4b5285ab459d2fc7e763"
