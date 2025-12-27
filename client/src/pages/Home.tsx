@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Carousel */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden pt-16 md:pt-0">
+      <section className="relative h-[80vh] min-h-[600px] overflow-hidden pt-20 md:pt-0">
         {/* Image Carousel */}
         {heroImages.map((img, idx) => (
           <div
