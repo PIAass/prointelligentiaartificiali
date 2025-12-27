@@ -31,6 +31,11 @@ export const translations = {
         title: "Pronto a prendere il controllo?",
         desc: "Richiedi una consulenza personalizzata per la tua azienda o ente.",
         btn: "Contattaci Ora"
+      },
+      guide: {
+        title: "Guida Gratuita: AI Locale",
+        desc: "Scarica la nostra guida definitiva per padroneggiare l'hardware per l'AI locale. Scopri come configurare il tuo sistema per eseguire modelli AI in autonomia.",
+        btn: "Scarica la Guida PDF"
       }
     },
     events: {
@@ -292,6 +297,11 @@ export const translations = {
         title: "Ready to take control?",
         desc: "Request a personalized consultation for your company or organization.",
         btn: "Contact Us Now"
+      },
+      guide: {
+        title: "Free Guide: Local AI",
+        desc: "Download our definitive guide to mastering hardware for local AI. Learn how to configure your system to run AI models independently.",
+        btn: "Download PDF Guide"
       }
     },
     events: {
@@ -553,6 +563,11 @@ export const translations = {
         title: "Bereit, die Kontrolle zu übernehmen?",
         desc: "Fordern Sie eine personalisierte Beratung für Ihr Unternehmen an.",
         btn: "Jetzt kontaktieren"
+      },
+      guide: {
+        title: "Kostenloser Leitfaden: Lokale KI",
+        desc: "Laden Sie unseren definitiven Leitfaden zur Beherrschung der Hardware für lokale KI herunter. Erfahren Sie, wie Sie Ihr System konfigurieren, um KI-Modelle eigenständig auszuführen.",
+        btn: "PDF-Leitfaden herunterladen"
       }
     },
     events: {
@@ -814,6 +829,11 @@ export const translations = {
         title: "Prêt à prendre le contrôle?",
         desc: "Demandez une consultation personnalisée pour votre entreprise.",
         btn: "Contactez-nous"
+      },
+      guide: {
+        title: "Guide Gratuit: IA Locale",
+        desc: "Téléchargez notre guide définitif pour maîtriser le matériel pour l'IA locale. Découvrez comment configurer votre système pour exécuter des modèles IA de manière autonome.",
+        btn: "Télécharger le Guide PDF"
       }
     },
     events: {

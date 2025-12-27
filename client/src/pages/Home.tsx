@@ -4,7 +4,7 @@ import { useTranslation } from "@/lib/translations";
 import { Section } from "@/components/Section";
 import { NeuralBackground } from "@/components/NeuralBackground";
 import { Link } from "wouter";
-import { ArrowRight, Shield, Briefcase, Bot, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Shield, Briefcase, Bot, ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import heroImage1 from "@assets/stock_images/abstract_artificial__bee6d443.jpg";
@@ -117,6 +117,29 @@ export default function Home() {
           </button>
         </div>
       </section>
+
+      {/* Guide Download Section */}
+      <Section className="bg-primary/10 relative">
+        <div className="absolute inset-0 opacity-10">
+          <NeuralBackground />
+        </div>
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">{t.home.guide.title}</h2>
+          <p className="text-muted-foreground mb-8 text-lg">
+            {t.home.guide.desc}
+          </p>
+          <a 
+            href="/PIA_guida_AI_Locale_1766854839035.pdf" 
+            download
+            data-testid="button-download-guide"
+          >
+            <Button size="lg" className="text-lg px-8 py-6">
+              <Download className="mr-2 w-5 h-5" />
+              {t.home.guide.btn}
+            </Button>
+          </a>
+        </div>
+      </Section>
 
       {/* Pillars Section */}
       <Section className="bg-secondary/30 relative">
