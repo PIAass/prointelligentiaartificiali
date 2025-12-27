@@ -12,8 +12,8 @@ import Mission from "@/pages/Mission";
 import Areas from "@/pages/Areas";
 import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
-import ContentList from "@/pages/ContentList";
-import ContentDetail from "@/pages/ContentDetail";
+import Events from "@/pages/Events";
+import Courses from "@/pages/Courses";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -32,53 +32,8 @@ function Router() {
           <Route path="/:lang/areas" component={Areas} />
           <Route path="/:lang/services" component={Services} />
           <Route path="/:lang/contact" component={Contact} />
-
-          {/* Dynamic Content Pages */}
-          <Route path="/:lang/blog">
-            <ContentList 
-              type="blog" 
-              title="Blog & Risorse" 
-              description="Articoli, guide e riflessioni sulla sovranità digitale." 
-            />
-          </Route>
-          
-          <Route path="/:lang/events">
-            <ContentList 
-              type="events" 
-              title="Eventi" 
-              description="Webinar, workshop e incontri dal vivo." 
-            />
-          </Route>
-
-          <Route path="/:lang/courses">
-            <ContentList 
-              type="courses" 
-              title="Formazione" 
-              description="Corsi professionali per accrescere le tue competenze digitali." 
-            />
-          </Route>
-
-          <Route path="/:lang/projects">
-            <ContentList 
-              type="projects" 
-              title="Progetti" 
-              description="Iniziative concrete per la comunità e il territorio." 
-            />
-          </Route>
-
-          {/* Content Detail Pages */}
-          <Route path="/:lang/blog/:slug">
-            <ContentDetail type="blog" />
-          </Route>
-          <Route path="/:lang/events/:slug">
-            <ContentDetail type="events" />
-          </Route>
-          <Route path="/:lang/courses/:slug">
-            <ContentDetail type="courses" />
-          </Route>
-          <Route path="/:lang/projects/:slug">
-            <ContentDetail type="projects" />
-          </Route>
+          <Route path="/:lang/events" component={Events} />
+          <Route path="/:lang/courses" component={Courses} />
 
           <Route component={NotFound} />
         </Switch>

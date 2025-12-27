@@ -56,5 +56,27 @@ export async function registerRoutes(
     }
   });
 
+  // === Newsletter API ===
+  app.post('/api/newsletter', async (req, res) => {
+    try {
+      const schema = z.object({
+        email: z.string().email(),
+        language: z.string().optional()
+      });
+      const { email, language } = schema.parse(req.body);
+      
+      // Log subscription (in production, integrate with Brevo/Mailchimp)
+      console.log(`Newsletter subscription: ${email} (lang: ${language || 'it'})`);
+      
+      res.status(200).json({ success: true, message: "Iscrizione completata!" });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ success: false, message: "Email non valida" });
+      } else {
+        res.status(500).json({ success: false, message: "Errore interno server" });
+      }
+    }
+  });
+
   return httpServer;
 }

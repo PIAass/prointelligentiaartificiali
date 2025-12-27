@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/hooks/use-language";
+import { useTranslation } from "@/lib/translations";
 import { cn } from "@/lib/utils";
 import { Menu, X, Shield, Globe } from "lucide-react";
 import { useState } from "react";
@@ -7,20 +8,18 @@ import { Language } from "@shared/schema";
 
 export function Navigation() {
   const { language, setLanguage } = useLanguage();
+  const t = useTranslation(language);
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Helper to construct localized paths
   const p = (path: string) => `/${language}${path}`;
 
   const navItems = [
-    { label: "Mission", path: "/mission" },
-    { label: "Aree", path: "/areas" },
-    { label: "Eventi", path: "/events" },
-    { label: "Formazione", path: "/courses" },
-    { label: "Progetti", path: "/projects" },
-    { label: "Servizi", path: "/services" },
-    { label: "Blog", path: "/blog" },
+    { label: t.nav.mission, path: "/mission" },
+    { label: t.nav.areas, path: "/areas" },
+    { label: t.nav.events, path: "/events" },
+    { label: t.nav.courses, path: "/courses" },
+    { label: t.nav.services, path: "/services" },
   ];
 
   const languages: Language[] = ["it", "en", "de", "fr"];
@@ -57,12 +56,12 @@ export function Navigation() {
               href={p("/contact")}
               className="px-5 py-2.5 bg-foreground text-background text-sm font-semibold uppercase tracking-wide hover:bg-primary transition-colors"
             >
-              Contatti
+              {t.nav.contact}
             </Link>
 
             {/* Language Switcher */}
             <div className="relative group ml-4 pl-4 border-l border-border h-6 flex items-center">
-              <button className="flex items-center space-x-1 text-sm font-medium hover:text-primary">
+              <button className="flex items-center space-x-1 text-sm font-medium hover:text-primary" data-testid="button-language-switcher">
                 <Globe className="w-4 h-4" />
                 <span className="uppercase">{language}</span>
               </button>
@@ -76,6 +75,7 @@ export function Navigation() {
                       "px-4 py-2 text-left text-sm uppercase hover:bg-muted transition-colors",
                       language === lang ? "font-bold text-primary" : ""
                     )}
+                    data-testid={`button-lang-${lang}`}
                   >
                     {lang}
                   </button>
@@ -84,53 +84,69 @@ export function Navigation() {
             </div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2">
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+            data-testid="button-mobile-menu"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Nav */}
       {isOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-background border-b border-border p-4 shadow-xl animate-in slide-in-from-top-5">
-          <nav className="flex flex-col space-y-4">
+        <div className="lg:hidden bg-background border-t border-border">
+          <nav className="flex flex-col py-4">
             {navItems.map((item) => (
-              <Link 
-                key={item.path} 
+              <Link
+                key={item.path}
                 href={p(item.path)}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "text-lg font-medium uppercase tracking-wider hover:text-primary transition-colors",
-                  location.includes(item.path) ? "text-primary" : "text-foreground"
+                  "px-6 py-3 text-sm font-medium uppercase tracking-wider hover:bg-muted transition-colors",
+                  location.includes(item.path) ? "text-primary font-bold" : "text-foreground"
                 )}
               >
                 {item.label}
               </Link>
             ))}
-            <Link 
+            <Link
               href={p("/contact")}
               onClick={() => setIsOpen(false)}
-              className="inline-block w-full text-center px-5 py-3 bg-foreground text-background font-semibold uppercase tracking-wide"
+              className="px-6 py-3 text-sm font-medium uppercase tracking-wider hover:bg-muted transition-colors"
             >
-              Contattaci
+              {t.nav.contact}
             </Link>
             
-            <div className="flex space-x-4 pt-4 border-t border-border justify-center">
-              {languages.map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => { setLanguage(lang); setIsOpen(false); }}
-                  className={cn(
-                    "text-sm font-bold uppercase p-2",
-                    language === lang ? "text-primary border-b-2 border-primary" : "text-muted-foreground"
-                  )}
-                >
-                  {lang}
-                </button>
-              ))}
+            {/* Mobile Language Switcher */}
+            <div className="px-6 py-3 border-t border-border mt-2">
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground uppercase">Lingua:</span>
+              </div>
+              <div className="flex gap-2 mt-2">
+                {languages.map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => {
+                      setLanguage(lang);
+                      setIsOpen(false);
+                    }}
+                    className={cn(
+                      "px-3 py-1 text-sm uppercase border rounded",
+                      language === lang 
+                        ? "border-primary text-primary font-bold" 
+                        : "border-border text-muted-foreground hover:border-primary"
+                    )}
+                    data-testid={`button-mobile-lang-${lang}`}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
             </div>
           </nav>
         </div>
