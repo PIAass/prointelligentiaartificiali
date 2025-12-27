@@ -215,7 +215,7 @@ export const translations = {
       ],
       ctaTitle: "Pronto a fare il salto?",
       ctaDesc: "Ogni giorno che passa senza AI è un'opportunità persa. Parliamone insieme.",
-      ctaContact: "Richiedi una consulenza gratuita"
+      ctaContact: "Richiedi una consulenza"
     },
     contact: {
       title: "Contattaci",
@@ -476,7 +476,7 @@ export const translations = {
       ],
       ctaTitle: "Ready to make the leap?",
       ctaDesc: "Every day without AI is a missed opportunity. Let's talk about it.",
-      ctaContact: "Request a free consultation"
+      ctaContact: "Request a consultation"
     },
     contact: {
       title: "Contact Us",
@@ -737,7 +737,7 @@ export const translations = {
       ],
       ctaTitle: "Bereit für den Sprung?",
       ctaDesc: "Jeder Tag ohne KI ist eine verpasste Chance. Sprechen wir darüber.",
-      ctaContact: "Kostenlose Beratung anfordern"
+      ctaContact: "Beratung anfordern"
     },
     contact: {
       title: "Kontaktieren Sie uns",
@@ -998,7 +998,7 @@ export const translations = {
       ],
       ctaTitle: "Prêt à faire le saut?",
       ctaDesc: "Chaque jour sans IA est une opportunité manquée. Parlons-en ensemble.",
-      ctaContact: "Demander une consultation gratuite"
+      ctaContact: "Demander une consultation"
     },
     contact: {
       title: "Contactez-nous",

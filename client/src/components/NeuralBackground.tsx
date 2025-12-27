@@ -69,8 +69,8 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
       });
 
       // Draw connections
-      const connectionDistance = 120;
-      const mouseDistance = 180;
+      const connectionDistance = 150;
+      const mouseDistance = 220;
 
       points.forEach((point, i) => {
         const distToMouse = Math.sqrt(
@@ -81,17 +81,21 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
         
         // Draw point
         ctx.beginPath();
-        ctx.arc(point.x, point.y, isNearMouse ? 4 : 2, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, isNearMouse ? 5 : 2, 0, Math.PI * 2);
         ctx.fillStyle = isNearMouse 
-          ? 'rgba(59, 130, 246, 1)' 
-          : 'rgba(59, 130, 246, 0.4)';
+          ? 'rgba(100, 180, 255, 1)' 
+          : 'rgba(59, 130, 246, 0.5)';
         ctx.fill();
         
         // Add glow effect for points near mouse
         if (isNearMouse) {
           ctx.beginPath();
-          ctx.arc(point.x, point.y, 8, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(59, 130, 246, 0.3)';
+          ctx.arc(point.x, point.y, 12, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(100, 180, 255, 0.4)';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 20, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(100, 180, 255, 0.15)';
           ctx.fill();
         }
 
@@ -109,14 +113,16 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
             const bothNearMouse = isNearMouse && otherDistToMouse < mouseDistance;
             
             const opacity = bothNearMouse 
-              ? 0.9 * (1 - dist / connectionDistance)
-              : 0.2 * (1 - dist / connectionDistance);
+              ? 1 * (1 - dist / connectionDistance)
+              : 0.25 * (1 - dist / connectionDistance);
 
             ctx.beginPath();
             ctx.moveTo(point.x, point.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})`;
-            ctx.lineWidth = bothNearMouse ? 2.5 : 0.5;
+            ctx.strokeStyle = bothNearMouse 
+              ? `rgba(100, 180, 255, ${opacity})`
+              : `rgba(59, 130, 246, ${opacity})`;
+            ctx.lineWidth = bothNearMouse ? 3 : 0.5;
             ctx.stroke();
           }
         }
