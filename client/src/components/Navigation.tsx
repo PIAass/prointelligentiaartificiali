@@ -2,9 +2,10 @@ import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/hooks/use-language";
 import { useTranslation } from "@/lib/translations";
 import { cn } from "@/lib/utils";
-import { Menu, X, Shield, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useState } from "react";
 import { Language } from "@shared/schema";
+import logoImage from "@assets/logo_castagna_tech_PIA_1766794794162.png";
 
 export function Navigation() {
   const { language, setLanguage } = useLanguage();
@@ -31,9 +32,11 @@ export function Navigation() {
           
           {/* Logo */}
           <Link href={`/${language}`} className="flex items-center space-x-3 group cursor-pointer">
-            <div className="w-10 h-10 bg-primary text-primary-foreground flex items-center justify-center transition-transform group-hover:rotate-12">
-              <Shield className="w-6 h-6" strokeWidth={1.5} />
-            </div>
+            <img 
+              src={logoImage} 
+              alt="PIA Logo" 
+              className="w-10 h-10 object-contain transition-transform group-hover:scale-105"
+            />
             <span className="text-xl font-bold tracking-tight uppercase">PIA</span>
           </Link>
 

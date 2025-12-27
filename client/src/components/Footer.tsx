@@ -1,8 +1,8 @@
 import { Link } from "wouter";
 import { useLanguage } from "@/hooks/use-language";
 import { useTranslation } from "@/lib/translations";
-import { Shield } from "lucide-react";
 import { SiInstagram, SiLinkedin } from "react-icons/si";
+import logoImage from "@assets/logo_castagna_tech_PIA_1766794794162.png";
 
 export function Footer() {
   const { language } = useLanguage();
@@ -15,7 +15,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
             <Link href={p("/")} className="flex items-center space-x-2 group cursor-pointer mb-6">
-              <Shield className="w-6 h-6 text-primary" strokeWidth={2} />
+              <img 
+                src={logoImage} 
+                alt="PIA Logo" 
+                className="w-8 h-8 object-contain"
+              />
               <span className="text-lg font-bold tracking-tight uppercase">PIA</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
