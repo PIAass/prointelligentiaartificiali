@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Carousel */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden pt-20 md:pt-0">
+      <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
         {/* Image Carousel */}
         {heroImages.map((img, idx) => (
           <div
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center pt-16 md:pt-0">
           <div className="max-w-4xl mx-auto px-4 text-center text-white">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
               Pro Intelligentia Artificiali
