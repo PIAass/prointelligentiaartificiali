@@ -69,3 +69,36 @@ export async function saveContactToNotion(data: {
   
   return response;
 }
+
+export async function saveNewsletterToNotion(data: {
+  name: string;
+  email: string;
+  consent: boolean;
+  source: string;
+  databaseId: string;
+}) {
+  const notion = await getNotionClient();
+  
+  const response = await notion.pages.create({
+    parent: { database_id: data.databaseId },
+    properties: {
+      'nome': {
+        title: [{ text: { content: data.name } }]
+      },
+      'mail': {
+        email: data.email
+      },
+      'data iscrizione': {
+        date: { start: new Date().toISOString() }
+      },
+      'consenso': {
+        checkbox: data.consent
+      },
+      'fonte': {
+        rich_text: [{ text: { content: data.source } }]
+      }
+    }
+  });
+  
+  return response;
+}

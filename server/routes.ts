@@ -5,7 +5,7 @@ import { getContentList, getContentItem } from "./content";
 import { insertContactSchema } from "@shared/schema";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { saveContactToNotion } from "./notion";
+import { saveContactToNotion, saveNewsletterToNotion } from "./notion";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -74,18 +74,37 @@ export async function registerRoutes(
   app.post('/api/newsletter', async (req, res) => {
     try {
       const schema = z.object({
+        name: z.string().min(1),
         email: z.string().email(),
+        consent: z.boolean(),
+        source: z.string().optional(),
         language: z.string().optional()
       });
-      const { email, language } = schema.parse(req.body);
+      const { name, email, consent, source, language } = schema.parse(req.body);
       
-      // Log subscription (in production, integrate with Brevo/Mailchimp)
-      console.log(`Newsletter subscription: ${email} (lang: ${language || 'it'})`);
+      console.log(`Newsletter subscription: ${email} (name: ${name}, lang: ${language || 'it'})`);
+      
+      // Save to Notion if database ID is configured
+      const notionDbId = process.env.NOTION_NEWSLETTER_DATABASE_ID;
+      if (notionDbId) {
+        try {
+          await saveNewsletterToNotion({
+            name,
+            email,
+            consent,
+            source: source || 'website',
+            databaseId: notionDbId
+          });
+          console.log(`Newsletter saved to Notion: ${email}`);
+        } catch (notionError) {
+          console.error('Failed to save newsletter to Notion:', notionError);
+        }
+      }
       
       res.status(200).json({ success: true, message: "Iscrizione completata!" });
     } catch (error) {
       if (error instanceof z.ZodError) {
-        res.status(400).json({ success: false, message: "Email non valida" });
+        res.status(400).json({ success: false, message: "Dati non validi" });
       } else {
         res.status(500).json({ success: false, message: "Errore interno server" });
       }

@@ -64,10 +64,12 @@ export const translations = {
     },
     newsletter: {
       title: "Iscriviti alla Newsletter",
+      name: "Il tuo nome",
       email: "La tua email",
       subscribe: "Iscriviti",
       success: "Grazie per l'iscrizione!",
-      error: "Errore, riprova."
+      error: "Errore, riprova.",
+      privacyConsent: "Acconsento al trattamento dei miei dati personali per ricevere la newsletter"
     }
   },
   en: {
@@ -135,10 +137,12 @@ export const translations = {
     },
     newsletter: {
       title: "Subscribe to Newsletter",
+      name: "Your name",
       email: "Your email",
       subscribe: "Subscribe",
       success: "Thanks for subscribing!",
-      error: "Error, please try again."
+      error: "Error, please try again.",
+      privacyConsent: "I consent to the processing of my personal data to receive the newsletter"
     }
   },
   de: {
@@ -206,10 +210,12 @@ export const translations = {
     },
     newsletter: {
       title: "Newsletter abonnieren",
+      name: "Ihr Name",
       email: "Ihre E-Mail",
       subscribe: "Abonnieren",
       success: "Danke für Ihre Anmeldung!",
-      error: "Fehler, bitte erneut versuchen."
+      error: "Fehler, bitte erneut versuchen.",
+      privacyConsent: "Ich stimme der Verarbeitung meiner persönlichen Daten zu, um den Newsletter zu erhalten"
     }
   },
   fr: {
@@ -277,10 +283,12 @@ export const translations = {
     },
     newsletter: {
       title: "S'inscrire à la Newsletter",
+      name: "Votre nom",
       email: "Votre email",
       subscribe: "S'inscrire",
       success: "Merci pour votre inscription!",
-      error: "Erreur, veuillez réessayer."
+      error: "Erreur, veuillez réessayer.",
+      privacyConsent: "Je consens au traitement de mes données personnelles pour recevoir la newsletter"
     }
   }
 } as const;
