@@ -82,19 +82,19 @@ export async function saveNewsletterToNotion(data: {
   const response = await notion.pages.create({
     parent: { database_id: data.databaseId },
     properties: {
-      'nome': {
+      'Nome': {
         title: [{ text: { content: data.name } }]
       },
-      'mail': {
+      'Email': {
         email: data.email
       },
-      'data iscrizione': {
+      'Data iscrizione': {
         date: { start: new Date().toISOString() }
       },
-      'consenso': {
+      'Consenso privacy': {
         checkbox: data.consent
       },
-      'fonte': {
+      'Fonte': {
         rich_text: [{ text: { content: data.source } }]
       }
     }
