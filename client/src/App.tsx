@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { LanguageProvider } from "@/hooks/use-language";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 // Pages
 import Home from "@/pages/Home";
@@ -19,6 +20,7 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navigation />
       <main className="flex-grow">
         <Switch>

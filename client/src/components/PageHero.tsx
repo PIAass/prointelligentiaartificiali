@@ -7,7 +7,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-border pt-24 lg:pt-32 pb-12">
+    <section className="relative overflow-hidden border-b border-border pt-20 lg:pt-24 pb-8">
       <div className="absolute inset-0 opacity-10">
         <NeuralBackground />
       </div>

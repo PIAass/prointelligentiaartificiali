@@ -40,13 +40,84 @@ export const translations = {
       subscribeBtn: "Iscriviti alla Newsletter",
       relatedTitle: "Eventi consigliati in Ticino e zona Insubrica",
       relatedSubtitle: "Selezione di eventi che riteniamo utili per la community. Verifica sempre i dettagli sul sito dell'organizzatore.",
-      learnMore: "Scopri di più"
+      learnMore: "Scopri di più",
+      externalEvents: [
+        {
+          title: "Lugano AI Week 2025",
+          date: "1-5 Dicembre 2025",
+          location: "Asilo Ciani, Lugano",
+          description: "Seconda edizione della settimana dedicata all'AI a Lugano. 50+ speaker, ingresso gratuito. Temi: arte, salute, robotica, business, geopolitica.",
+          link: "https://www.luganolivinglab.ch/en/main-eventi/ai-week-2025",
+          tags: ["Conferenza", "Gratuito", "Lugano"]
+        },
+        {
+          title: "Swiss AI Summit 2025",
+          date: "2025",
+          location: "Zurigo",
+          description: "Summit nazionale sull'intelligenza artificiale con leader del settore, fondatori e esperti.",
+          link: "https://www.swissaisummit.com/",
+          tags: ["Summit", "Business", "Zurigo"]
+        },
+        {
+          title: "Swiss {ai} Weeks",
+          date: "2025",
+          location: "Svizzera",
+          description: "Serie di eventi multi-location dedicati all'AI in tutta la Svizzera.",
+          link: "https://swiss-ai-weeks.ch/",
+          tags: ["Eventi", "Nazionale"]
+        },
+        {
+          title: "SUPSI AI Research Day",
+          date: "2025",
+          location: "Manno, Ticino",
+          description: "Giornata dedicata alla ricerca in AI presso SUPSI, con focus su progetti locali e collaborazioni internazionali.",
+          link: "https://www.supsi.ch",
+          tags: ["Ricerca", "Accademia", "Ticino"]
+        }
+      ]
     },
     courses: {
       title: "Formazione",
       subtitle: "Corsi professionali per accrescere le tue competenze digitali.",
       placeholder: "Molti corsi in pubblicazione presto, iscriviti alla nostra newsletter per rimanere aggiornato!",
-      pastTitle: "Corsi Svolti"
+      pastTitle: "Corsi Svolti",
+      pastCourses: [
+        {
+          title: "AI Locale: Installare e Usare Modelli Open Source",
+          date: "Novembre 2024",
+          level: "Intermedio",
+          description: "Come installare e configurare modelli AI open source sul proprio hardware.",
+          tags: ["AI Locale", "Privacy", "Open Source"]
+        },
+        {
+          title: "Brand Identity con l'AI: Strategie Etiche",
+          date: "Ottobre 2024",
+          level: "Base",
+          description: "Costruire un'identità di brand autentica usando strumenti AI.",
+          tags: ["Brand", "Marketing", "Etica"]
+        },
+        {
+          title: "Chatbot per PMI: Implementazione Pratica",
+          date: "Settembre 2024",
+          level: "Intermedio",
+          description: "Progettare chatbot aziendali per customer care e vendite.",
+          tags: ["Chatbot", "PMI", "Customer Care"]
+        },
+        {
+          title: "Introduzione all'AI per Professionisti",
+          date: "Luglio 2024",
+          level: "Base",
+          description: "Un'introduzione pratica all'uso di assistenti AI nel lavoro quotidiano.",
+          tags: ["Base", "Produttività", "Gratuito"]
+        },
+        {
+          title: "Privacy e nLPD nell'Era dell'AI",
+          date: "Giugno 2024",
+          level: "Tutti",
+          description: "Panoramica sulla nuova Legge sulla Protezione dei Dati svizzera (nLPD).",
+          tags: ["Privacy", "nLPD", "Legale"]
+        }
+      ]
     },
     mission: {
       title: "La nostra Mission",
@@ -232,13 +303,84 @@ export const translations = {
       subscribeBtn: "Subscribe to Newsletter",
       relatedTitle: "Recommended Events in Ticino and Insubria",
       relatedSubtitle: "A selection of events we find useful for the community. Always check details on the organizer's website.",
-      learnMore: "Learn more"
+      learnMore: "Learn more",
+      externalEvents: [
+        {
+          title: "Lugano AI Week 2025",
+          date: "December 1-5, 2025",
+          location: "Asilo Ciani, Lugano",
+          description: "Second edition of the AI week in Lugano. 50+ speakers, free admission. Topics: art, health, robotics, business, geopolitics.",
+          link: "https://www.luganolivinglab.ch/en/main-eventi/ai-week-2025",
+          tags: ["Conference", "Free", "Lugano"]
+        },
+        {
+          title: "Swiss AI Summit 2025",
+          date: "2025",
+          location: "Zurich",
+          description: "National summit on artificial intelligence with industry leaders, founders, and experts.",
+          link: "https://www.swissaisummit.com/",
+          tags: ["Summit", "Business", "Zurich"]
+        },
+        {
+          title: "Swiss {ai} Weeks",
+          date: "2025",
+          location: "Switzerland",
+          description: "Multi-location event series dedicated to AI across Switzerland.",
+          link: "https://swiss-ai-weeks.ch/",
+          tags: ["Events", "National"]
+        },
+        {
+          title: "SUPSI AI Research Day",
+          date: "2025",
+          location: "Manno, Ticino",
+          description: "Day dedicated to AI research at SUPSI, focusing on local projects and international collaborations.",
+          link: "https://www.supsi.ch",
+          tags: ["Research", "Academy", "Ticino"]
+        }
+      ]
     },
     courses: {
       title: "Training",
       subtitle: "Professional courses to grow your digital skills.",
       placeholder: "Many courses coming soon, subscribe to our newsletter to stay updated!",
-      pastTitle: "Past Courses"
+      pastTitle: "Past Courses",
+      pastCourses: [
+        {
+          title: "Local AI: Installing and Using Open Source Models",
+          date: "November 2024",
+          level: "Intermediate",
+          description: "How to install and configure open source AI models on your own hardware.",
+          tags: ["Local AI", "Privacy", "Open Source"]
+        },
+        {
+          title: "Brand Identity with AI: Ethical Strategies",
+          date: "October 2024",
+          level: "Beginner",
+          description: "Building an authentic brand identity using AI tools.",
+          tags: ["Brand", "Marketing", "Ethics"]
+        },
+        {
+          title: "Chatbots for SMEs: Practical Implementation",
+          date: "September 2024",
+          level: "Intermediate",
+          description: "Designing business chatbots for customer care and sales.",
+          tags: ["Chatbot", "SME", "Customer Care"]
+        },
+        {
+          title: "Introduction to AI for Professionals",
+          date: "July 2024",
+          level: "Beginner",
+          description: "A practical introduction to using AI assistants in daily work.",
+          tags: ["Beginner", "Productivity", "Free"]
+        },
+        {
+          title: "Privacy and nFADP in the AI Era",
+          date: "June 2024",
+          level: "All",
+          description: "Overview of the new Swiss Federal Act on Data Protection (nFADP).",
+          tags: ["Privacy", "nFADP", "Legal"]
+        }
+      ]
     },
     mission: {
       title: "Our Mission",
@@ -424,13 +566,84 @@ export const translations = {
       subscribeBtn: "Newsletter abonnieren",
       relatedTitle: "Empfohlene Veranstaltungen im Tessin und Insubrien",
       relatedSubtitle: "Eine Auswahl von Veranstaltungen, die wir für die Community nützlich finden. Prüfen Sie immer die Details auf der Website des Veranstalters.",
-      learnMore: "Mehr erfahren"
+      learnMore: "Mehr erfahren",
+      externalEvents: [
+        {
+          title: "Lugano AI Week 2025",
+          date: "1.-5. Dezember 2025",
+          location: "Asilo Ciani, Lugano",
+          description: "Zweite Ausgabe der KI-Woche in Lugano. 50+ Referenten, kostenloser Eintritt. Themen: Kunst, Gesundheit, Robotik, Business, Geopolitik.",
+          link: "https://www.luganolivinglab.ch/en/main-eventi/ai-week-2025",
+          tags: ["Konferenz", "Kostenlos", "Lugano"]
+        },
+        {
+          title: "Swiss AI Summit 2025",
+          date: "2025",
+          location: "Zürich",
+          description: "Nationaler Gipfel zur künstlichen Intelligenz mit Branchenführern, Gründern und Experten.",
+          link: "https://www.swissaisummit.com/",
+          tags: ["Gipfel", "Business", "Zürich"]
+        },
+        {
+          title: "Swiss {ai} Weeks",
+          date: "2025",
+          location: "Schweiz",
+          description: "Multi-Standort-Veranstaltungsreihe rund um KI in der gesamten Schweiz.",
+          link: "https://swiss-ai-weeks.ch/",
+          tags: ["Events", "National"]
+        },
+        {
+          title: "SUPSI AI Research Day",
+          date: "2025",
+          location: "Manno, Tessin",
+          description: "Tag der KI-Forschung an der SUPSI mit Fokus auf lokale Projekte und internationale Zusammenarbeit.",
+          link: "https://www.supsi.ch",
+          tags: ["Forschung", "Akademie", "Tessin"]
+        }
+      ]
     },
     courses: {
       title: "Ausbildung",
       subtitle: "Berufskurse zur Erweiterung Ihrer digitalen Kompetenzen.",
       placeholder: "Viele Kurse kommen bald, abonnieren Sie unseren Newsletter!",
-      pastTitle: "Vergangene Kurse"
+      pastTitle: "Vergangene Kurse",
+      pastCourses: [
+        {
+          title: "Lokale KI: Open-Source-Modelle installieren und nutzen",
+          date: "November 2024",
+          level: "Fortgeschritten",
+          description: "Installation und Konfiguration von Open-Source-KI-Modellen auf eigener Hardware.",
+          tags: ["Lokale KI", "Datenschutz", "Open Source"]
+        },
+        {
+          title: "Markenidentität mit KI: Ethische Strategien",
+          date: "Oktober 2024",
+          level: "Anfänger",
+          description: "Aufbau einer authentischen Markenidentität mit KI-Tools.",
+          tags: ["Marke", "Marketing", "Ethik"]
+        },
+        {
+          title: "Chatbots für KMU: Praktische Umsetzung",
+          date: "September 2024",
+          level: "Fortgeschritten",
+          description: "Entwicklung von Business-Chatbots für Kundenservice und Vertrieb.",
+          tags: ["Chatbot", "KMU", "Kundenservice"]
+        },
+        {
+          title: "Einführung in KI für Fachleute",
+          date: "Juli 2024",
+          level: "Anfänger",
+          description: "Eine praktische Einführung in die Nutzung von KI-Assistenten im Arbeitsalltag.",
+          tags: ["Anfänger", "Produktivität", "Kostenlos"]
+        },
+        {
+          title: "Datenschutz und nDSG im KI-Zeitalter",
+          date: "Juni 2024",
+          level: "Alle",
+          description: "Überblick über das neue Schweizer Datenschutzgesetz (nDSG).",
+          tags: ["Datenschutz", "nDSG", "Recht"]
+        }
+      ]
     },
     mission: {
       title: "Unsere Mission",
@@ -616,13 +829,84 @@ export const translations = {
       subscribeBtn: "S'inscrire à la Newsletter",
       relatedTitle: "Événements recommandés au Tessin et Insubrie",
       relatedSubtitle: "Une sélection d'événements que nous trouvons utiles pour la communauté. Vérifiez toujours les détails sur le site de l'organisateur.",
-      learnMore: "En savoir plus"
+      learnMore: "En savoir plus",
+      externalEvents: [
+        {
+          title: "Lugano AI Week 2025",
+          date: "1-5 Décembre 2025",
+          location: "Asilo Ciani, Lugano",
+          description: "Deuxième édition de la semaine IA à Lugano. 50+ intervenants, entrée gratuite. Thèmes: art, santé, robotique, business, géopolitique.",
+          link: "https://www.luganolivinglab.ch/en/main-eventi/ai-week-2025",
+          tags: ["Conférence", "Gratuit", "Lugano"]
+        },
+        {
+          title: "Swiss AI Summit 2025",
+          date: "2025",
+          location: "Zurich",
+          description: "Sommet national sur l'intelligence artificielle avec leaders du secteur, fondateurs et experts.",
+          link: "https://www.swissaisummit.com/",
+          tags: ["Sommet", "Business", "Zurich"]
+        },
+        {
+          title: "Swiss {ai} Weeks",
+          date: "2025",
+          location: "Suisse",
+          description: "Série d'événements multi-sites dédiés à l'IA dans toute la Suisse.",
+          link: "https://swiss-ai-weeks.ch/",
+          tags: ["Événements", "National"]
+        },
+        {
+          title: "SUPSI AI Research Day",
+          date: "2025",
+          location: "Manno, Tessin",
+          description: "Journée dédiée à la recherche en IA à la SUPSI, focus sur projets locaux et collaborations internationales.",
+          link: "https://www.supsi.ch",
+          tags: ["Recherche", "Académie", "Tessin"]
+        }
+      ]
     },
     courses: {
       title: "Formation",
       subtitle: "Cours professionnels pour développer vos compétences numériques.",
       placeholder: "Beaucoup de cours à venir, inscrivez-vous à notre newsletter!",
-      pastTitle: "Cours Passés"
+      pastTitle: "Cours Passés",
+      pastCourses: [
+        {
+          title: "IA Locale: Installer et Utiliser des Modèles Open Source",
+          date: "Novembre 2024",
+          level: "Intermédiaire",
+          description: "Comment installer et configurer des modèles IA open source sur votre propre matériel.",
+          tags: ["IA Locale", "Confidentialité", "Open Source"]
+        },
+        {
+          title: "Identité de Marque avec l'IA: Stratégies Éthiques",
+          date: "Octobre 2024",
+          level: "Débutant",
+          description: "Construire une identité de marque authentique avec des outils IA.",
+          tags: ["Marque", "Marketing", "Éthique"]
+        },
+        {
+          title: "Chatbots pour PME: Implémentation Pratique",
+          date: "Septembre 2024",
+          level: "Intermédiaire",
+          description: "Concevoir des chatbots d'entreprise pour le service client et les ventes.",
+          tags: ["Chatbot", "PME", "Service Client"]
+        },
+        {
+          title: "Introduction à l'IA pour Professionnels",
+          date: "Juillet 2024",
+          level: "Débutant",
+          description: "Une introduction pratique à l'utilisation d'assistants IA dans le travail quotidien.",
+          tags: ["Débutant", "Productivité", "Gratuit"]
+        },
+        {
+          title: "Vie Privée et nLPD à l'Ère de l'IA",
+          date: "Juin 2024",
+          level: "Tous",
+          description: "Aperçu de la nouvelle Loi fédérale sur la Protection des Données (nLPD).",
+          tags: ["Confidentialité", "nLPD", "Juridique"]
+        }
+      ]
     },
     mission: {
       title: "Notre Mission",
