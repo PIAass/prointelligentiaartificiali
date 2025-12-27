@@ -5,6 +5,7 @@ import { getContentList, getContentItem } from "./content";
 import { insertContactSchema } from "@shared/schema";
 import { api } from "@shared/routes";
 import { z } from "zod";
+import { saveContactToNotion } from "./notion";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -40,11 +41,24 @@ export async function registerRoutes(
     try {
       const input = insertContactSchema.parse(req.body);
       
-      // Log to storage/console as fallback (simulating SMTP)
+      // Log to storage/console as fallback
       await storage.logContactSubmission(input);
       
-      // Here you would implement actual email sending with Resend/SMTP
-      // e.g. await sendEmail(input);
+      // Save to Notion if database ID is configured
+      const notionDbId = process.env.NOTION_CONTACTS_DATABASE_ID;
+      if (notionDbId) {
+        try {
+          await saveContactToNotion({
+            name: input.name,
+            email: input.email,
+            message: input.message,
+            databaseId: notionDbId
+          });
+          console.log(`Contact saved to Notion: ${input.email}`);
+        } catch (notionError) {
+          console.error('Failed to save to Notion:', notionError);
+        }
+      }
 
       res.status(200).json({ success: true, message: "Messaggio inviato con successo!" });
     } catch (error) {
