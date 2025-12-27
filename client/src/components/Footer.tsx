@@ -77,9 +77,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Associazione Pro Intelligentia Artificiali. All rights reserved.</p>
-          <p className="mt-2 md:mt-0 font-mono">Via Maestri Comacini 7, 6830 Chiasso</p>
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-2 items-center text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} Associazione Pro Intelligentia Artificiali. {t.footer.copyright}</p>
+          <p className="font-mono">Via Maestri Comacini 7, 6830 Chiasso</p>
         </div>
       </div>
     </footer>

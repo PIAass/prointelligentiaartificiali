@@ -2,8 +2,7 @@ import { useLanguage } from "@/hooks/use-language";
 import { useTranslation } from "@/lib/translations";
 import { Section } from "@/components/Section";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { NeuralBackground } from "@/components/NeuralBackground";
-import { PageHeader } from "@/components/PageHeader";
+import { PageHero } from "@/components/PageHero";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -50,32 +49,11 @@ export default function Events() {
 
   return (
     <div className="min-h-screen">
-      <PageHeader />
-      {/* Hero */}
-      <Section className="relative overflow-hidden border-b border-border pt-8 lg:pt-24">
-        <div className="absolute inset-0 opacity-10">
-          <NeuralBackground />
-        </div>
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t.events.title}</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">{t.events.description}</p>
-        </div>
-      </Section>
+      <PageHero title={t.events.title} subtitle={t.events.subtitle} />
 
-      {/* Newsletter CTA */}
-      <Section className="bg-primary/5">
-        <div className="max-w-2xl mx-auto text-center">
-          <Calendar className="w-16 h-16 text-primary mx-auto mb-6" strokeWidth={1.5} />
-          <h2 className="text-2xl font-bold mb-4">{t.events.placeholder}</h2>
-          <div className="mt-8">
-            <NewsletterForm />
-          </div>
-        </div>
-      </Section>
-
-      {/* External Events Carousel */}
       <Section>
-        <h2 className="text-3xl font-bold mb-8">{t.events.relatedTitle}</h2>
+        <h2 className="text-3xl font-bold mb-2">{t.events.relatedTitle}</h2>
+        <p className="text-muted-foreground mb-8">{t.events.relatedSubtitle}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {externalEvents.map((event, idx) => (
             <Card key={idx} className="group hover:border-primary/50 transition-colors">
@@ -110,6 +88,16 @@ export default function Events() {
               </CardContent>
             </Card>
           ))}
+        </div>
+      </Section>
+
+      <Section className="bg-primary/5">
+        <div className="max-w-2xl mx-auto text-center">
+          <Calendar className="w-16 h-16 text-primary mx-auto mb-6" strokeWidth={1.5} />
+          <h2 className="text-2xl font-bold mb-4">{t.events.placeholder}</h2>
+          <div className="mt-8">
+            <NewsletterForm />
+          </div>
         </div>
       </Section>
     </div>

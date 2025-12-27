@@ -35,17 +35,135 @@ export const translations = {
     },
     events: {
       title: "Eventi",
-      description: "Webinar, workshop e incontri dal vivo.",
+      subtitle: "Webinar, workshop e incontri dal vivo.",
       placeholder: "Molti eventi in programmazione, iscriviti alla nostra newsletter per rimanere aggiornato!",
       subscribeBtn: "Iscriviti alla Newsletter",
-      relatedTitle: "Eventi AI in Ticino e zona Insubrica",
+      relatedTitle: "Eventi consigliati in Ticino e zona Insubrica",
+      relatedSubtitle: "Selezione di eventi che riteniamo utili per la community. Verifica sempre i dettagli sul sito dell'organizzatore.",
       learnMore: "Scopri di più"
     },
     courses: {
       title: "Formazione",
-      description: "Corsi professionali per accrescere le tue competenze digitali.",
+      subtitle: "Corsi professionali per accrescere le tue competenze digitali.",
       placeholder: "Molti corsi in pubblicazione presto, iscriviti alla nostra newsletter per rimanere aggiornato!",
       pastTitle: "Corsi Svolti"
+    },
+    mission: {
+      title: "La nostra Mission",
+      subtitle: "Democratizzare l'accesso all'AI sicura e riservata.",
+      intro: "In un mondo dove pochi giganti tech controllano l'AI, crediamo che l'autonomia digitale sia un diritto fondamentale.",
+      whyTitle: "Perché esistiamo",
+      whyText1: "PIA nasce per democratizzare l'accesso all'intelligenza artificiale sicura e discreta, nel rispetto della privacy e della riservatezza svizzera.",
+      whyText2: "Rendiamo l'AI locale e gli assistenti/chatbot accessibili anche ai non tecnici, permettendo a chiunque di beneficiare di queste tecnologie senza compromettere i propri dati.",
+      values: [
+        {
+          num: "01",
+          title: "Privacy come diritto",
+          desc: "Promuoviamo soluzioni AI locali che mantengono i dati sensibili sotto il controllo dell'utente, senza inviarli a server esterni."
+        },
+        {
+          num: "02",
+          title: "Protezione del lavoro",
+          desc: "Usiamo l'AI per creare opportunità e proteggere le persone a rischio sostituzione attraverso riqualifica, sviluppo carriera e collaborazione con l'AI."
+        },
+        {
+          num: "03",
+          title: "Pubblica utilità",
+          desc: "Reinvestiamo i proventi in formazione ed eventi di pubblica utilità, collaborando con enti e istituzioni del territorio."
+        }
+      ]
+    },
+    areas: {
+      title: "Aree Operative",
+      subtitle: "I nostri ambiti di intervento per la democratizzazione dell'AI.",
+      items: [
+        {
+          title: "AI Locale & Privacy",
+          desc: "Soluzioni AI che girano sul tuo hardware, senza inviare dati a server esterni. Massima privacy e controllo."
+        },
+        {
+          title: "Chatbot & Assistenti",
+          desc: "Implementazione di chatbot per siti web e assistenti AI personalizzati per professionisti e attività commerciali."
+        },
+        {
+          title: "Formazione & Upskilling",
+          desc: "Corsi e workshop per sviluppare competenze AI, proteggendo le persone a rischio automazione."
+        },
+        {
+          title: "Progetti & Partnership",
+          desc: "Collaborazioni con enti pubblici, istituzioni e aziende per progetti di AI responsabile."
+        },
+        {
+          title: "Community & Eventi",
+          desc: "Organizzazione e promozione di eventi formativi e di networking sul territorio."
+        },
+        {
+          title: "Consapevolezza Digitale",
+          desc: "Educazione su privacy, sicurezza e uso etico delle tecnologie AI."
+        }
+      ]
+    },
+    services: {
+      title: "I Nostri Servizi",
+      subtitle: "Soluzioni AI su misura per professionisti, imprese e privati.",
+      categories: [
+        {
+          title: "AI Locale per Professionisti e Microimprese",
+          items: [
+            "Installazione AI in locale (mini-PC con GPU / workstation) + configurazione",
+            "Uso con dati sensibili (clienti, documenti interni)",
+            "RAG su policy/procedure/documentazione (knowledge base interna)",
+            "Privacy & compliance (CH + EU quando rilevante)"
+          ]
+        },
+        {
+          title: "AI Locale per Persone Fisiche",
+          items: [
+            "Installazione su PC personale o soluzione dedicata",
+            "Gestione documenti sanitari, professionali, bancari",
+            "Maggiore controllo e riservatezza sui propri dati"
+          ]
+        },
+        {
+          title: "Chatbot per Siti Web",
+          items: [
+            "Chatbot per FAQ, lead generation, prenotazioni",
+            "Pre-qualifica richieste clienti",
+            "Target: estetiste, artigiani, commercialisti, avvocati, studi professionali",
+            "Opzione knowledge base integrata"
+          ]
+        },
+        {
+          title: "Formazione e Consulenza",
+          items: [
+            "Webinar e corsi on-demand",
+            "Workshop di gruppo e one-to-one",
+            "Percorsi di upskilling/riqualifica per categorie a rischio automazione"
+          ]
+        }
+      ],
+      uncensoredTitle: "Modelli senza censura",
+      uncensoredText: "Alcuni modelli locali non hanno censura o guardrail: puoi chiedere qualsiasi cosa.",
+      disclaimerText: "L'utente resta responsabile dell'uso conforme alle leggi e al rispetto dei diritti altrui.",
+      ctaContact: "Contattaci",
+      ctaCourses: "Scopri la formazione"
+    },
+    contact: {
+      title: "Contattaci",
+      subtitle: "Hai domande sui nostri servizi o vuoi collaborare? Scrivici.",
+      headquarters: "Sede",
+      email: "Email",
+      social: "Social",
+      formName: "Nome",
+      formEmail: "Email",
+      formMessage: "Messaggio",
+      formPlaceholderName: "Il tuo nome",
+      formPlaceholderEmail: "tua@email.com",
+      formPlaceholderMessage: "Come possiamo aiutarti?",
+      formSubmit: "Invia Messaggio",
+      formSubmitting: "Invio in corso...",
+      successTitle: "Messaggio inviato!",
+      successDesc: "Grazie per averci contattato. Ti risponderemo presto."
     },
     footer: {
       description: "Associazione no-profit per l'indipendenza tecnologica, la sovranità digitale e la democratizzazione dell'AI in locale.",
@@ -60,7 +178,8 @@ export const translations = {
       contact: "Contatti",
       events: "Eventi",
       courses: "Corsi",
-      areas: "Aree Tematiche"
+      areas: "Aree Tematiche",
+      copyright: "Tutti i diritti riservati."
     },
     newsletter: {
       title: "Iscriviti alla Newsletter",
@@ -108,17 +227,135 @@ export const translations = {
     },
     events: {
       title: "Events",
-      description: "Webinars, workshops, and live meetings.",
+      subtitle: "Webinars, workshops, and live meetings.",
       placeholder: "Many events coming soon, subscribe to our newsletter to stay updated!",
       subscribeBtn: "Subscribe to Newsletter",
-      relatedTitle: "AI Events in Ticino and Insubria",
+      relatedTitle: "Recommended Events in Ticino and Insubria",
+      relatedSubtitle: "A selection of events we find useful for the community. Always check details on the organizer's website.",
       learnMore: "Learn more"
     },
     courses: {
       title: "Training",
-      description: "Professional courses to grow your digital skills.",
+      subtitle: "Professional courses to grow your digital skills.",
       placeholder: "Many courses coming soon, subscribe to our newsletter to stay updated!",
       pastTitle: "Past Courses"
+    },
+    mission: {
+      title: "Our Mission",
+      subtitle: "Democratizing access to secure and private AI.",
+      intro: "In a world where few tech giants control AI, we believe digital autonomy is a fundamental right.",
+      whyTitle: "Why we exist",
+      whyText1: "PIA was born to democratize access to secure and discreet artificial intelligence, respecting Swiss privacy standards.",
+      whyText2: "We make local AI and chatbot assistants accessible to non-technical users, allowing anyone to benefit from these technologies without compromising their data.",
+      values: [
+        {
+          num: "01",
+          title: "Privacy as a right",
+          desc: "We promote local AI solutions that keep sensitive data under user control, without sending it to external servers."
+        },
+        {
+          num: "02",
+          title: "Protecting work",
+          desc: "We use AI to create opportunities and protect people at risk of replacement through reskilling, career development, and AI collaboration."
+        },
+        {
+          num: "03",
+          title: "Public benefit",
+          desc: "We reinvest profits in training and public benefit events, collaborating with local institutions and organizations."
+        }
+      ]
+    },
+    areas: {
+      title: "Operational Areas",
+      subtitle: "Our fields of action for AI democratization.",
+      items: [
+        {
+          title: "Local AI & Privacy",
+          desc: "AI solutions running on your hardware, without sending data to external servers. Maximum privacy and control."
+        },
+        {
+          title: "Chatbots & Assistants",
+          desc: "Implementation of website chatbots and personalized AI assistants for professionals and businesses."
+        },
+        {
+          title: "Training & Upskilling",
+          desc: "Courses and workshops to develop AI skills, protecting people at risk of automation."
+        },
+        {
+          title: "Projects & Partnerships",
+          desc: "Collaborations with public entities, institutions, and companies for responsible AI projects."
+        },
+        {
+          title: "Community & Events",
+          desc: "Organization and promotion of training and networking events in the region."
+        },
+        {
+          title: "Digital Awareness",
+          desc: "Education on privacy, security, and ethical use of AI technologies."
+        }
+      ]
+    },
+    services: {
+      title: "Our Services",
+      subtitle: "Custom AI solutions for professionals, businesses, and individuals.",
+      categories: [
+        {
+          title: "Local AI for Professionals and Small Businesses",
+          items: [
+            "Local AI installation (mini-PC with GPU / workstation) + configuration",
+            "Use with sensitive data (clients, internal documents)",
+            "RAG on policies/procedures/documentation (internal knowledge base)",
+            "Privacy & compliance (CH + EU when relevant)"
+          ]
+        },
+        {
+          title: "Local AI for Individuals",
+          items: [
+            "Installation on personal PC or dedicated solution",
+            "Management of medical, professional, banking documents",
+            "Greater control and privacy over your data"
+          ]
+        },
+        {
+          title: "Website Chatbots",
+          items: [
+            "Chatbots for FAQ, lead generation, bookings",
+            "Client request pre-qualification",
+            "Target: beauticians, craftsmen, accountants, lawyers, professional firms",
+            "Integrated knowledge base option"
+          ]
+        },
+        {
+          title: "Training and Consulting",
+          items: [
+            "Webinars and on-demand courses",
+            "Group and one-to-one workshops",
+            "Upskilling/reskilling paths for categories at risk of automation"
+          ]
+        }
+      ],
+      uncensoredTitle: "Uncensored models",
+      uncensoredText: "Some local models have no censorship or guardrails: you can ask anything.",
+      disclaimerText: "The user remains responsible for lawful use and respect for others' rights.",
+      ctaContact: "Contact Us",
+      ctaCourses: "Discover Training"
+    },
+    contact: {
+      title: "Contact Us",
+      subtitle: "Have questions about our services or want to collaborate? Write to us.",
+      headquarters: "Headquarters",
+      email: "Email",
+      social: "Social",
+      formName: "Name",
+      formEmail: "Email",
+      formMessage: "Message",
+      formPlaceholderName: "Your name",
+      formPlaceholderEmail: "your@email.com",
+      formPlaceholderMessage: "How can we help you?",
+      formSubmit: "Send Message",
+      formSubmitting: "Sending...",
+      successTitle: "Message sent!",
+      successDesc: "Thank you for contacting us. We'll get back to you soon."
     },
     footer: {
       description: "Non-profit association for technological independence, digital sovereignty, and democratization of local AI.",
@@ -133,7 +370,8 @@ export const translations = {
       contact: "Contact",
       events: "Events",
       courses: "Courses",
-      areas: "Topic Areas"
+      areas: "Topic Areas",
+      copyright: "All rights reserved."
     },
     newsletter: {
       title: "Subscribe to Newsletter",
@@ -181,17 +419,135 @@ export const translations = {
     },
     events: {
       title: "Veranstaltungen",
-      description: "Webinare, Workshops und Live-Treffen.",
+      subtitle: "Webinare, Workshops und Live-Treffen.",
       placeholder: "Viele Veranstaltungen in Planung, abonnieren Sie unseren Newsletter!",
       subscribeBtn: "Newsletter abonnieren",
-      relatedTitle: "KI-Veranstaltungen im Tessin und Insubrien",
+      relatedTitle: "Empfohlene Veranstaltungen im Tessin und Insubrien",
+      relatedSubtitle: "Eine Auswahl von Veranstaltungen, die wir für die Community nützlich finden. Prüfen Sie immer die Details auf der Website des Veranstalters.",
       learnMore: "Mehr erfahren"
     },
     courses: {
       title: "Ausbildung",
-      description: "Berufskurse zur Erweiterung Ihrer digitalen Kompetenzen.",
+      subtitle: "Berufskurse zur Erweiterung Ihrer digitalen Kompetenzen.",
       placeholder: "Viele Kurse kommen bald, abonnieren Sie unseren Newsletter!",
       pastTitle: "Vergangene Kurse"
+    },
+    mission: {
+      title: "Unsere Mission",
+      subtitle: "Demokratisierung des Zugangs zu sicherer und privater KI.",
+      intro: "In einer Welt, in der wenige Tech-Giganten die KI kontrollieren, glauben wir, dass digitale Autonomie ein Grundrecht ist.",
+      whyTitle: "Warum wir existieren",
+      whyText1: "PIA wurde gegründet, um den Zugang zu sicherer und diskreter künstlicher Intelligenz zu demokratisieren, unter Wahrung der Schweizer Datenschutzstandards.",
+      whyText2: "Wir machen lokale KI und Chatbot-Assistenten für nicht-technische Benutzer zugänglich, damit jeder von diesen Technologien profitieren kann, ohne seine Daten zu gefährden.",
+      values: [
+        {
+          num: "01",
+          title: "Datenschutz als Recht",
+          desc: "Wir fördern lokale KI-Lösungen, die sensible Daten unter Benutzerkontrolle halten, ohne sie an externe Server zu senden."
+        },
+        {
+          num: "02",
+          title: "Schutz der Arbeit",
+          desc: "Wir nutzen KI, um Chancen zu schaffen und Menschen vor Ersetzung zu schützen durch Umschulung, Karriereentwicklung und KI-Zusammenarbeit."
+        },
+        {
+          num: "03",
+          title: "Gemeinnützigkeit",
+          desc: "Wir reinvestieren Gewinne in Schulungen und gemeinnützige Veranstaltungen, in Zusammenarbeit mit lokalen Institutionen."
+        }
+      ]
+    },
+    areas: {
+      title: "Tätigkeitsbereiche",
+      subtitle: "Unsere Handlungsfelder für die KI-Demokratisierung.",
+      items: [
+        {
+          title: "Lokale KI & Datenschutz",
+          desc: "KI-Lösungen auf Ihrer Hardware, ohne Daten an externe Server zu senden. Maximale Privatsphäre und Kontrolle."
+        },
+        {
+          title: "Chatbots & Assistenten",
+          desc: "Implementierung von Website-Chatbots und personalisierten KI-Assistenten für Fachleute und Unternehmen."
+        },
+        {
+          title: "Ausbildung & Weiterbildung",
+          desc: "Kurse und Workshops zur Entwicklung von KI-Kompetenzen, Schutz von Automatisierungsrisiken."
+        },
+        {
+          title: "Projekte & Partnerschaften",
+          desc: "Zusammenarbeit mit öffentlichen Einrichtungen, Institutionen und Unternehmen für verantwortungsvolle KI-Projekte."
+        },
+        {
+          title: "Community & Veranstaltungen",
+          desc: "Organisation und Förderung von Schulungs- und Networking-Veranstaltungen in der Region."
+        },
+        {
+          title: "Digitales Bewusstsein",
+          desc: "Bildung über Datenschutz, Sicherheit und ethische Nutzung von KI-Technologien."
+        }
+      ]
+    },
+    services: {
+      title: "Unsere Dienste",
+      subtitle: "Massgeschneiderte KI-Lösungen für Fachleute, Unternehmen und Privatpersonen.",
+      categories: [
+        {
+          title: "Lokale KI für Fachleute und Kleinunternehmen",
+          items: [
+            "Lokale KI-Installation (Mini-PC mit GPU / Workstation) + Konfiguration",
+            "Verwendung mit sensiblen Daten (Kunden, interne Dokumente)",
+            "RAG auf Richtlinien/Verfahren/Dokumentation (interne Wissensbasis)",
+            "Datenschutz & Compliance (CH + EU wenn relevant)"
+          ]
+        },
+        {
+          title: "Lokale KI für Privatpersonen",
+          items: [
+            "Installation auf Personal-PC oder dedizierte Lösung",
+            "Verwaltung von medizinischen, beruflichen, Bankdokumenten",
+            "Mehr Kontrolle und Privatsphäre über Ihre Daten"
+          ]
+        },
+        {
+          title: "Website-Chatbots",
+          items: [
+            "Chatbots für FAQ, Lead-Generierung, Buchungen",
+            "Kundenanfragen-Vorqualifizierung",
+            "Zielgruppe: Kosmetikerinnen, Handwerker, Buchhalter, Anwälte, Fachbüros",
+            "Integrierte Wissensbasis-Option"
+          ]
+        },
+        {
+          title: "Schulung und Beratung",
+          items: [
+            "Webinare und On-Demand-Kurse",
+            "Gruppen- und Einzelworkshops",
+            "Weiterbildungs-/Umschulungsprogramme für automatisierungsgefährdete Kategorien"
+          ]
+        }
+      ],
+      uncensoredTitle: "Unzensierte Modelle",
+      uncensoredText: "Einige lokale Modelle haben keine Zensur oder Leitplanken: Sie können alles fragen.",
+      disclaimerText: "Der Benutzer bleibt verantwortlich für die rechtmässige Nutzung und die Achtung der Rechte anderer.",
+      ctaContact: "Kontaktieren Sie uns",
+      ctaCourses: "Ausbildung entdecken"
+    },
+    contact: {
+      title: "Kontaktieren Sie uns",
+      subtitle: "Haben Sie Fragen zu unseren Diensten oder möchten Sie zusammenarbeiten? Schreiben Sie uns.",
+      headquarters: "Sitz",
+      email: "E-Mail",
+      social: "Soziale Medien",
+      formName: "Name",
+      formEmail: "E-Mail",
+      formMessage: "Nachricht",
+      formPlaceholderName: "Ihr Name",
+      formPlaceholderEmail: "ihre@email.com",
+      formPlaceholderMessage: "Wie können wir Ihnen helfen?",
+      formSubmit: "Nachricht senden",
+      formSubmitting: "Wird gesendet...",
+      successTitle: "Nachricht gesendet!",
+      successDesc: "Vielen Dank für Ihre Kontaktaufnahme. Wir melden uns bald."
     },
     footer: {
       description: "Gemeinnütziger Verein für technologische Unabhängigkeit, digitale Souveränität und Demokratisierung lokaler KI.",
@@ -206,7 +562,8 @@ export const translations = {
       contact: "Kontakt",
       events: "Veranstaltungen",
       courses: "Kurse",
-      areas: "Themenbereiche"
+      areas: "Themenbereiche",
+      copyright: "Alle Rechte vorbehalten."
     },
     newsletter: {
       title: "Newsletter abonnieren",
@@ -254,17 +611,135 @@ export const translations = {
     },
     events: {
       title: "Événements",
-      description: "Webinaires, ateliers et rencontres.",
+      subtitle: "Webinaires, ateliers et rencontres.",
       placeholder: "Beaucoup d'événements à venir, inscrivez-vous à notre newsletter!",
       subscribeBtn: "S'inscrire à la Newsletter",
-      relatedTitle: "Événements IA au Tessin et Insubrie",
+      relatedTitle: "Événements recommandés au Tessin et Insubrie",
+      relatedSubtitle: "Une sélection d'événements que nous trouvons utiles pour la communauté. Vérifiez toujours les détails sur le site de l'organisateur.",
       learnMore: "En savoir plus"
     },
     courses: {
       title: "Formation",
-      description: "Cours professionnels pour développer vos compétences numériques.",
+      subtitle: "Cours professionnels pour développer vos compétences numériques.",
       placeholder: "Beaucoup de cours à venir, inscrivez-vous à notre newsletter!",
       pastTitle: "Cours Passés"
+    },
+    mission: {
+      title: "Notre Mission",
+      subtitle: "Démocratiser l'accès à l'IA sécurisée et privée.",
+      intro: "Dans un monde où quelques géants tech contrôlent l'IA, nous croyons que l'autonomie numérique est un droit fondamental.",
+      whyTitle: "Pourquoi nous existons",
+      whyText1: "PIA est né pour démocratiser l'accès à l'intelligence artificielle sécurisée et discrète, dans le respect des standards de confidentialité suisses.",
+      whyText2: "Nous rendons l'IA locale et les assistants chatbot accessibles aux utilisateurs non techniques, permettant à chacun de bénéficier de ces technologies sans compromettre ses données.",
+      values: [
+        {
+          num: "01",
+          title: "La vie privée comme droit",
+          desc: "Nous promouvons des solutions d'IA locales qui gardent les données sensibles sous le contrôle de l'utilisateur, sans les envoyer à des serveurs externes."
+        },
+        {
+          num: "02",
+          title: "Protection du travail",
+          desc: "Nous utilisons l'IA pour créer des opportunités et protéger les personnes à risque de remplacement par la reconversion, le développement de carrière et la collaboration avec l'IA."
+        },
+        {
+          num: "03",
+          title: "Utilité publique",
+          desc: "Nous réinvestissons les bénéfices dans la formation et les événements d'utilité publique, en collaboration avec les institutions locales."
+        }
+      ]
+    },
+    areas: {
+      title: "Domaines Opérationnels",
+      subtitle: "Nos champs d'action pour la démocratisation de l'IA.",
+      items: [
+        {
+          title: "IA Locale & Confidentialité",
+          desc: "Solutions IA fonctionnant sur votre matériel, sans envoyer de données à des serveurs externes. Confidentialité et contrôle maximum."
+        },
+        {
+          title: "Chatbots & Assistants",
+          desc: "Implémentation de chatbots pour sites web et assistants IA personnalisés pour professionnels et entreprises."
+        },
+        {
+          title: "Formation & Montée en compétences",
+          desc: "Cours et ateliers pour développer les compétences IA, protégeant les personnes à risque d'automatisation."
+        },
+        {
+          title: "Projets & Partenariats",
+          desc: "Collaborations avec entités publiques, institutions et entreprises pour des projets d'IA responsable."
+        },
+        {
+          title: "Communauté & Événements",
+          desc: "Organisation et promotion d'événements de formation et de réseautage dans la région."
+        },
+        {
+          title: "Conscience Numérique",
+          desc: "Éducation sur la vie privée, la sécurité et l'utilisation éthique des technologies IA."
+        }
+      ]
+    },
+    services: {
+      title: "Nos Services",
+      subtitle: "Solutions IA sur mesure pour professionnels, entreprises et particuliers.",
+      categories: [
+        {
+          title: "IA Locale pour Professionnels et Petites Entreprises",
+          items: [
+            "Installation IA locale (mini-PC avec GPU / station de travail) + configuration",
+            "Utilisation avec données sensibles (clients, documents internes)",
+            "RAG sur politiques/procédures/documentation (base de connaissances interne)",
+            "Confidentialité & conformité (CH + UE le cas échéant)"
+          ]
+        },
+        {
+          title: "IA Locale pour Particuliers",
+          items: [
+            "Installation sur PC personnel ou solution dédiée",
+            "Gestion de documents médicaux, professionnels, bancaires",
+            "Plus de contrôle et de confidentialité sur vos données"
+          ]
+        },
+        {
+          title: "Chatbots pour Sites Web",
+          items: [
+            "Chatbots pour FAQ, génération de leads, réservations",
+            "Pré-qualification des demandes clients",
+            "Cible: esthéticiennes, artisans, comptables, avocats, cabinets professionnels",
+            "Option base de connaissances intégrée"
+          ]
+        },
+        {
+          title: "Formation et Conseil",
+          items: [
+            "Webinaires et cours à la demande",
+            "Ateliers de groupe et individuels",
+            "Parcours de montée en compétences/reconversion pour catégories à risque d'automatisation"
+          ]
+        }
+      ],
+      uncensoredTitle: "Modèles sans censure",
+      uncensoredText: "Certains modèles locaux n'ont pas de censure ni de garde-fous: vous pouvez demander n'importe quoi.",
+      disclaimerText: "L'utilisateur reste responsable de l'utilisation conforme aux lois et du respect des droits d'autrui.",
+      ctaContact: "Contactez-nous",
+      ctaCourses: "Découvrir la formation"
+    },
+    contact: {
+      title: "Contactez-nous",
+      subtitle: "Des questions sur nos services ou envie de collaborer? Écrivez-nous.",
+      headquarters: "Siège",
+      email: "Email",
+      social: "Réseaux sociaux",
+      formName: "Nom",
+      formEmail: "Email",
+      formMessage: "Message",
+      formPlaceholderName: "Votre nom",
+      formPlaceholderEmail: "votre@email.com",
+      formPlaceholderMessage: "Comment pouvons-nous vous aider?",
+      formSubmit: "Envoyer le message",
+      formSubmitting: "Envoi en cours...",
+      successTitle: "Message envoyé!",
+      successDesc: "Merci de nous avoir contactés. Nous vous répondrons bientôt."
     },
     footer: {
       description: "Association à but non lucratif pour l'indépendance technologique, la souveraineté numérique et la démocratisation de l'IA locale.",
@@ -279,7 +754,8 @@ export const translations = {
       contact: "Contact",
       events: "Événements",
       courses: "Cours",
-      areas: "Domaines thématiques"
+      areas: "Domaines thématiques",
+      copyright: "Tous droits réservés."
     },
     newsletter: {
       title: "S'inscrire à la Newsletter",

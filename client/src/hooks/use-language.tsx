@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { useLocation } from "wouter";
 import { Language } from "@shared/schema";
 
+const LANGUAGE_STORAGE_KEY = "pia-language";
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
@@ -9,21 +11,43 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function getStoredLanguage(): Language | null {
+  try {
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (stored && ["it", "en", "de", "fr"].includes(stored)) {
+      return stored as Language;
+    }
+  } catch {
+    // localStorage not available
+  }
+  return null;
+}
+
+function storeLanguage(lang: Language) {
+  try {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+  } catch {
+    // localStorage not available
+  }
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [location, setLocation] = useLocation();
   const [language, setLanguageState] = useState<Language>("it");
 
-  // Sync language with URL
+  // Sync language with URL and localStorage
   useEffect(() => {
     const pathParts = location.split('/');
-    // pathParts[0] is empty string if path starts with /
     const langSegment = pathParts[1]; 
     
     if (langSegment && ["it", "en", "de", "fr"].includes(langSegment)) {
       setLanguageState(langSegment as Language);
+      storeLanguage(langSegment as Language);
     } else if (location === "/") {
-       // Redirect root to default language
-       setLocation("/it");
+      // Check localStorage for preferred language
+      const storedLang = getStoredLanguage();
+      const preferredLang = storedLang || "it";
+      setLocation(`/${preferredLang}`);
     }
   }, [location, setLocation]);
 
@@ -34,6 +58,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const newPath = pathParts.join('/') || `/${newLang}`;
     setLocation(newPath);
     setLanguageState(newLang);
+    storeLanguage(newLang);
   };
 
   return (

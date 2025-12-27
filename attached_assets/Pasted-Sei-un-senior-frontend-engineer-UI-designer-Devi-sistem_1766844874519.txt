@@ -1,0 +1,144 @@
+Sei un senior frontend engineer + UI designer. Devi sistemare il sito esistente (UI/UX + contenuti) rispettando vincoli rigorosi. Lavora direttamente sul codice del progetto in Replit.
+
+URL di riferimento (per verifiche visuali): /it/
+IMPORTANTE: NON introdurre regressioni su form e integrazioni con Notion.
+
+========================
+VINCOLI: PARTI DA NON MODIFICARE
+========================
+1) Header: lascia invariato (OK così com’è)
+   - Logo “PIA”
+   - “Pro Intelligentia Artificiali”
+   - Menu: Mission, Aree, Eventi, Formazione, Servizi, Contatti
+   - Pulsante multi-lingua (puoi modificarne SOLO il comportamento tecnico in fase i18n, ma non l’aspetto e non i link del menu)
+2) Home: lascia invariati
+   - carosello (OK)
+   - testo hero: “Pro Intelligentia Artificiali ... Scopri i Servizi Contattaci” (OK)
+3) NON MODIFICARE ASSOLUTAMENTE:
+   - Form “Iscriviti alla Newsletter” (funziona con Notion)
+   - Form “Contatti” (funziona con Notion)
+   Trattali come black box: puoi solo spostare margini/spacing esterni se serve, ma non cambiare campi, logica, endpoint, id, script, integrazioni.
+
+========================
+PROBLEMI DA RISOLVERE (UI)
+========================
+A) Uniformare la parte alta (top/hero) di TUTTE le pagine:
+   - Oggi alcune pagine hanno spazio vuoto/brutto o altezze non consistenti.
+   - Obiettivo: sopra ogni pagina (Mission, Aree, Eventi, Formazione, Servizi, Contatti) creare un “Page Hero” coerente:
+     - stessa altezza/padding verticale (senza buchi inutili)
+     - stesso allineamento e max-width
+     - titolo pagina + breve sottotitolo (tradotto nelle 4 lingue)
+     - nessun “vuoto” tra header e inizio contenuto
+   - Implementazione consigliata: componente riusabile <PageHero title subtitle /> + layout standard con container e spacing coerente.
+   - Non cambiare header esistente.
+
+B) Sezioni social: togli Mastodon e metti Instagram
+   - Sostituisci ovunque compaia Mastodon (footer e/o sezione social) con Instagram.
+   - Mantieni stile e icon set coerente (es. lucide-react “Instagram” o SVG equivalente).
+   - Se non esiste URL Instagram nel config, crea un placeholder costante (es. INSTAGRAM_URL) facile da modificare.
+     (NON inventare handle definitivo: usa placeholder tipo https://instagram.com/INSERISCI_PROFILO)
+
+C) Pagina Eventi: riorganizza contenuti
+   - La sezione “Eventi AI in Ticino e zona Insubrica” deve essere portata IN ALTO nella pagina, prima del placeholder:
+     “Molti eventi in programmazione, iscriviti alla nostra newsletter per rimanere aggiornato!”
+   - Rinomina la sezione per rendere chiaro che sono eventi consigliati/raccomandati:
+     - IT: “Eventi consigliati in Ticino e zona Insubrica”
+     - EN/DE/FR: traduzioni equivalenti
+   - Aggiungi una riga di spiegazione sotto al titolo (tradotta):
+     IT: “Selezione di eventi che riteniamo utili per la community. Verifica sempre i dettagli sul sito dell’organizzatore.”
+   - Mantieni la lista eventi come già implementata (se esiste un data source), ma cambiane posizione e heading.
+
+D) Pagina Formazione: priorità e pulizia
+   - La sezione “Corsi svolti” deve stare all’inizio pagina (subito dopo il Page Hero).
+   - Riduci i dettagli dei corsi passati “inventati”:
+     - elimina il campo “relatore”
+     - mantieni solo: titolo corso, data/periodo, 1 riga descrittiva breve (max 120 caratteri)
+   - Se ci sono card troppo lunghe, uniforma altezza e limita testo (line-clamp).
+
+========================
+SERVIZI / MISSION / AREE: ALLINEAMENTO AL BUSINESS MODEL
+========================
+E) Pagina Servizi: riscrivi e struttura coerentemente con questo modello (in 4 lingue)
+   - Obiettivo: presentare servizi reali e coerenti con missione + business model.
+
+   Struttura Servizi (IT) — crea sezioni/chips/carte pulite:
+   1) AI Locale per Professionisti e Microimprese (Svizzera)
+      - Installazione AI in locale (mini-PC con GPU / workstation) + configurazione
+      - Uso con dati sensibili (clienti, documenti interni)
+      - RAG su policy/procedure/documentazione (knowledge base interna)
+      - Privacy & compliance (CH + EU quando rilevante)
+   2) AI Locale per Persone Fisiche (non tecniche)
+      - Installazione su PC o soluzione dedicata
+      - Per documenti sanitari/professionali/bancari
+      - Maggiore controllo e riservatezza
+   3) Chatbot per Siti Web di Piccole Attività e Studi Professionali
+      - Installazione chatbot su sito per: FAQ, lead, prenotazioni, pre-qualifica richieste
+      - Esempi target: estetiste, centri benessere, artigiani, commercialisti, avvocati
+      - Opzione knowledge base (se presente)
+   4) Formazione e Consulenza
+      - Webinar, on-demand, eventi in presenza
+      - Workshop per gruppi + one-to-one
+      - Percorsi di upskilling/riqualifica per categorie a rischio automazione
+
+   IMPORTANTE (da includere esplicitamente, come richiesto dal committente):
+   - Inserisci un punto di vendita chiaro: “Alcuni modelli locali non hanno censura/guardrail: puoi chiedere qualsiasi cosa.”
+   - Aggiungi però una micro-nota di responsabilità (non moralista, 1 riga) tipo:
+     “L’utente resta responsabile dell’uso conforme alle leggi e al rispetto dei diritti altrui.”
+   - Non cambiare tono: deve restare “vendibile” e chiaro.
+
+   CTA in fondo: “Contattaci” + “Scopri la formazione” (tradotte).
+   Mantieni gli stili già in uso (Tailwind o CSS esistente), ma rendi la pagina più elegante, con gerarchia visiva chiara.
+
+F) Pagine Mission e Aree: riscrivi i contenuti per essere coerenti col modello sopra (in 4 lingue)
+   Mission (punti chiave da includere):
+   - democratizzare accesso all’AI sicura e discreta (privacy + riservatezza svizzera)
+   - rendere l’AI locale e gli assistenti/chatbot accessibili anche ai non tecnici
+   - usare l’AI per creare opportunità e proteggere persone a rischio sostituzione (riqualifica, carriera, collaborazione con AI)
+   - reinvestire proventi in formazione/eventi di pubblica utilità
+   - collaborazione con enti e istituzioni (Cantone, progetti, associazioni, ecc.)
+
+   Aree (organizza in 4–6 aree operative):
+   - AI Locale & Privacy
+   - Chatbot & Assistenti
+   - Formazione & Upskilling
+   - Progetti & Partnership (pubblico/privato)
+   - Community & Eventi
+   - (opzionale) Sicurezza digitale / consapevolezza
+
+   Mantieni layout ordinato: cards con icone + breve descrizione.
+
+========================
+MULTI-LINGUA: ULTIMA COSA (MA DEVE ESSERE PERFETTA)
+========================
+G) Sistema la funzione multi lingua affinché:
+   - funzioni OVUNQUE nel sito
+   - OGNI contenuto e titolo sia tradotto in TUTTE e 4 le lingue (incl. footer)
+   - il passaggio da una lingua all’altra avvenga SENZA refresh pagina (no window.location, no full reload)
+   - la lingua scelta persista (localStorage o cookie) e venga ripristinata al reload
+   - tutti i menu, label, heading, paragrafi, CTA, footer, placeholder ecc. usino la stessa sorgente i18n
+
+   Requisiti tecnici:
+   - Se il progetto è Next.js: usa una soluzione i18n client-side (es. next-intl o i18next) e assicurati che lo switch lingua usi router push client-side (no reload).
+   - Se il progetto è React/Vite: usa react-i18next o soluzione equivalente con context + dictionaries JSON.
+   - Evita duplicazioni: crea /locales/{it,en,de,fr}.json con chiavi stabili.
+   - Aggiungi helper <LanguageProvider> + hook useT() o useTranslation() coerente.
+   - Traduce anche il footer e tutti i titoli delle pagine.
+
+========================
+QUALITÀ / ACCETTAZIONE
+========================
+1) Non deve rompersi nulla (routing, form Notion, newsletter, contatti).
+2) Spaziatura top uniforme: nessuna pagina con buchi vuoti brutti nella parte alta.
+3) Eventi consigliati in cima alla pagina Eventi, prima del placeholder.
+4) Mastodon rimosso, Instagram presente ovunque.
+5) Formazione: “corsi svolti” in alto, dettagli ridotti, relatore rimosso.
+6) Servizi/Mission/Aree riscritti coerentemente con modello sopra, in 4 lingue.
+7) Switch lingua senza refresh e tutte le stringhe tradotte (incl. footer).
+8) Responsive: mobile/tablet/desktop ok, typography pulita, cards coerenti.
+
+========================
+CONSEGNA
+========================
+- Implementa le modifiche in commit logico (o descrivi chiaramente cosa hai cambiato).
+- Indica dove stanno i file i18n, PageHero, e quali pagine sono state aggiornate.
+- Fornisci una checklist finale con i punti di accettazione verificati.
