@@ -81,11 +81,19 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
         
         // Draw point
         ctx.beginPath();
-        ctx.arc(point.x, point.y, isNearMouse ? 5 : 2, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, isNearMouse ? 5 : 3, 0, Math.PI * 2);
         ctx.fillStyle = isNearMouse 
           ? 'rgba(100, 180, 255, 1)' 
-          : 'rgba(59, 130, 246, 0.5)';
+          : 'rgba(59, 130, 246, 0.8)';
         ctx.fill();
+        
+        // Add subtle glow for all points
+        if (!isNearMouse) {
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 6, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';
+          ctx.fill();
+        }
         
         // Add glow effect for points near mouse
         if (isNearMouse) {
@@ -114,7 +122,7 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
             
             const opacity = bothNearMouse 
               ? 1 * (1 - dist / connectionDistance)
-              : 0.25 * (1 - dist / connectionDistance);
+              : 0.5 * (1 - dist / connectionDistance);
 
             ctx.beginPath();
             ctx.moveTo(point.x, point.y);
@@ -122,7 +130,7 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
             ctx.strokeStyle = bothNearMouse 
               ? `rgba(100, 180, 255, ${opacity})`
               : `rgba(59, 130, 246, ${opacity})`;
-            ctx.lineWidth = bothNearMouse ? 3 : 0.5;
+            ctx.lineWidth = bothNearMouse ? 3 : 1;
             ctx.stroke();
           }
         }
