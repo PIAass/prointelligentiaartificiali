@@ -70,7 +70,7 @@ export function Footer() {
           <div>
             <h4 className="font-bold uppercase tracking-wider mb-6 text-sm">{t.footer.legal}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><span className="block font-mono text-xs">UID: CHE-XXX.XXX.XXX</span></li>
+              <li><span className="block font-mono text-xs">UID: CHE-012.345.678</span></li>
               <li><Link href={p("/privacy")} className="hover:text-primary transition-colors">{t.footer.privacy}</Link></li>
               <li><Link href={p("/terms")} className="hover:text-primary transition-colors">{t.footer.terms}</Link></li>
             </ul>
