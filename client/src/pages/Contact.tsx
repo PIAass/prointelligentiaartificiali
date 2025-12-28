@@ -64,8 +64,8 @@ export default function Contact() {
 
             <div className="mb-12">
               <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">{t.contact.email}</h3>
-              <a href="mailto:info@prointelligentiaartificiali.ch" className="text-xl font-medium hover:text-primary transition-colors">
-                info@prointelligentiaartificiali.ch
+              <a href="mailto:prointelligentiaartificiali@protonmail.com" className="text-xl font-medium hover:text-primary transition-colors">
+                prointelligentiaartificiali@protonmail.com
               </a>
             </div>
 
