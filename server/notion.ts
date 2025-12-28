@@ -1,44 +1,61 @@
 import { Client } from '@notionhq/client';
 
 let connectionSettings: any;
+let cachedClient: Client | null = null;
 
-async function getAccessToken() {
-  if (connectionSettings && connectionSettings.settings.expires_at && new Date(connectionSettings.settings.expires_at).getTime() > Date.now()) {
-    return connectionSettings.settings.access_token;
-  }
-  
-  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME
-  const xReplitToken = process.env.REPL_IDENTITY 
-    ? 'repl ' + process.env.REPL_IDENTITY 
-    : process.env.WEB_REPL_RENEWAL 
-    ? 'depl ' + process.env.WEB_REPL_RENEWAL 
-    : null;
+async function getAccessTokenFromReplit(): Promise<string | null> {
+  try {
+    const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
+    if (!hostname) return null;
 
-  if (!xReplitToken) {
-    throw new Error('X_REPLIT_TOKEN not found for repl/depl');
-  }
+    const xReplitToken = process.env.REPL_IDENTITY 
+      ? 'repl ' + process.env.REPL_IDENTITY 
+      : process.env.WEB_REPL_RENEWAL 
+      ? 'depl ' + process.env.WEB_REPL_RENEWAL 
+      : null;
 
-  connectionSettings = await fetch(
-    'https://' + hostname + '/api/v2/connection?include_secrets=true&connector_names=notion',
-    {
-      headers: {
-        'Accept': 'application/json',
-        'X_REPLIT_TOKEN': xReplitToken
+    if (!xReplitToken) return null;
+
+    connectionSettings = await fetch(
+      'https://' + hostname + '/api/v2/connection?include_secrets=true&connector_names=notion',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'X_REPLIT_TOKEN': xReplitToken
+        }
       }
-    }
-  ).then(res => res.json()).then(data => data.items?.[0]);
+    ).then(res => res.json()).then(data => data.items?.[0]);
 
-  const accessToken = connectionSettings?.settings?.access_token || connectionSettings.settings?.oauth?.credentials?.access_token;
-
-  if (!connectionSettings || !accessToken) {
-    throw new Error('Notion not connected');
+    const accessToken = connectionSettings?.settings?.access_token || connectionSettings?.settings?.oauth?.credentials?.access_token;
+    return accessToken || null;
+  } catch {
+    return null;
   }
-  return accessToken;
 }
 
-export async function getNotionClient() {
-  const accessToken = await getAccessToken();
-  return new Client({ auth: accessToken });
+export async function getNotionClient(): Promise<Client> {
+  if (cachedClient) return cachedClient;
+
+  // Priority 1: Use NOTION_TOKEN env var (portable)
+  const envToken = process.env.NOTION_TOKEN;
+  if (envToken) {
+    cachedClient = new Client({ auth: envToken });
+    return cachedClient;
+  }
+
+  // Priority 2: Fallback to Replit Connectors
+  const replitToken = await getAccessTokenFromReplit();
+  if (replitToken) {
+    cachedClient = new Client({ auth: replitToken });
+    return cachedClient;
+  }
+
+  // No configuration available
+  throw new Error('Notion not configured');
+}
+
+export function isNotionConfigured(): boolean {
+  return !!(process.env.NOTION_TOKEN || process.env.REPLIT_CONNECTORS_HOSTNAME);
 }
 
 export async function saveContactToNotion(data: {
@@ -49,7 +66,7 @@ export async function saveContactToNotion(data: {
 }) {
   const notion = await getNotionClient();
   
-  const response = await notion.pages.create({
+  await notion.pages.create({
     parent: { database_id: data.databaseId },
     properties: {
       'Nome': {
@@ -66,8 +83,6 @@ export async function saveContactToNotion(data: {
       }
     }
   });
-  
-  return response;
 }
 
 export async function saveNewsletterToNotion(data: {
@@ -79,7 +94,7 @@ export async function saveNewsletterToNotion(data: {
 }) {
   const notion = await getNotionClient();
   
-  const response = await notion.pages.create({
+  await notion.pages.create({
     parent: { database_id: data.databaseId },
     properties: {
       'Nome': {
@@ -99,6 +114,4 @@ export async function saveNewsletterToNotion(data: {
       }
     }
   });
-  
-  return response;
 }

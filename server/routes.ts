@@ -1,11 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
 import { getContentList, getContentItem } from "./content";
 import { insertContactSchema } from "@shared/schema";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { saveContactToNotion, saveNewsletterToNotion } from "./notion";
+import { saveContactToNotion, saveNewsletterToNotion, isNotionConfigured } from "./notion";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -24,7 +23,8 @@ export async function registerRoutes(
   });
 
   app.get('/api/content/:lang/:type/:slug', async (req, res) => {
-    const { lang, type, slug } = req.params;
+    const { lang, type } = req.params;
+    const slug = req.params.slug;
     try {
       const item = await getContentItem(lang, type, slug);
       if (!item) {
@@ -38,33 +38,32 @@ export async function registerRoutes(
 
   // === Contact Form API ===
   app.post('/api/contact', async (req, res) => {
+    const notionDbId = process.env.NOTION_CONTACTS_DATABASE_ID;
+    
+    // Check configuration before processing
+    if (!notionDbId || !isNotionConfigured()) {
+      return res.status(503).json({ message: "Service not configured" });
+    }
+
     try {
       const input = insertContactSchema.parse(req.body);
       
-      // Log to storage/console as fallback
-      await storage.logContactSubmission(input);
+      await saveContactToNotion({
+        name: input.name,
+        email: input.email,
+        message: input.message,
+        databaseId: notionDbId
+      });
       
-      // Save to Notion if database ID is configured
-      const notionDbId = process.env.NOTION_CONTACTS_DATABASE_ID;
-      if (notionDbId) {
-        try {
-          await saveContactToNotion({
-            name: input.name,
-            email: input.email,
-            message: input.message,
-            databaseId: notionDbId
-          });
-          console.log(`Contact saved to Notion: ${input.email}`);
-        } catch (notionError) {
-          console.error('Failed to save to Notion:', notionError);
-        }
-      }
+      // Log success (no sensitive data)
+      console.log('Contact form submission saved successfully');
 
       res.status(200).json({ success: true, message: "Messaggio inviato con successo!" });
     } catch (error) {
       if (error instanceof z.ZodError) {
         res.status(400).json({ message: "Dati non validi", field: error.errors[0].path.join('.') });
       } else {
+        console.error('Contact form error');
         res.status(500).json({ message: "Errore interno server" });
       }
     }
@@ -72,6 +71,13 @@ export async function registerRoutes(
 
   // === Newsletter API ===
   app.post('/api/newsletter', async (req, res) => {
+    const notionDbId = process.env.NOTION_NEWSLETTER_DATABASE_ID;
+    
+    // Check configuration before processing
+    if (!notionDbId || !isNotionConfigured()) {
+      return res.status(503).json({ success: false, message: "Service not configured" });
+    }
+
     try {
       const schema = z.object({
         name: z.string().min(1),
@@ -80,32 +86,25 @@ export async function registerRoutes(
         source: z.string().optional(),
         language: z.string().optional()
       });
-      const { name, email, consent, source, language } = schema.parse(req.body);
+      const { name, email, consent, source } = schema.parse(req.body);
       
-      console.log(`Newsletter subscription: ${email} (name: ${name}, lang: ${language || 'it'})`);
+      await saveNewsletterToNotion({
+        name,
+        email,
+        consent,
+        source: source || 'website',
+        databaseId: notionDbId
+      });
       
-      // Save to Notion if database ID is configured
-      const notionDbId = process.env.NOTION_NEWSLETTER_DATABASE_ID;
-      if (notionDbId) {
-        try {
-          await saveNewsletterToNotion({
-            name,
-            email,
-            consent,
-            source: source || 'website',
-            databaseId: notionDbId
-          });
-          console.log(`Newsletter saved to Notion: ${email}`);
-        } catch (notionError) {
-          console.error('Failed to save newsletter to Notion:', notionError);
-        }
-      }
+      // Log success (no sensitive data)
+      console.log('Newsletter subscription saved successfully');
       
       res.status(200).json({ success: true, message: "Iscrizione completata!" });
     } catch (error) {
       if (error instanceof z.ZodError) {
         res.status(400).json({ success: false, message: "Dati non validi" });
       } else {
+        console.error('Newsletter error');
         res.status(500).json({ success: false, message: "Errore interno server" });
       }
     }

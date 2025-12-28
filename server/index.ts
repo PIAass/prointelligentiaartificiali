@@ -6,6 +6,36 @@ import { createServer } from "http";
 const app = express();
 const httpServer = createServer(app);
 
+// CORS middleware for split deployments
+const corsOrigins = process.env.CORS_ORIGINS?.split(',').map(o => o.trim()).filter(Boolean) || [];
+const isDev = process.env.NODE_ENV !== 'production';
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  
+  // In dev, allow localhost origins
+  if (isDev && origin && (origin.includes('localhost') || origin.includes('127.0.0.1'))) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  }
+  // Check allowlist from env
+  else if (origin && corsOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  }
+  
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  
+  next();
+});
+
 declare module "http" {
   interface IncomingMessage {
     rawBody: unknown;

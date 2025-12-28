@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Mail } from 'lucide-react';
+import { apiUrl } from '@/lib/api';
 
 export function NewsletterForm({ variant = 'default', source = 'website' }: { variant?: 'default' | 'inline', source?: string }) {
   const { language } = useLanguage();
@@ -21,7 +22,7 @@ export function NewsletterForm({ variant = 'default', source = 'website' }: { va
     setStatus('loading');
     
     try {
-      const res = await fetch('/api/newsletter', {
+      const res = await fetch(apiUrl('/api/newsletter'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, consent, source, language }),
